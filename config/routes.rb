@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       registrations: "public/registrations",
       sessions: 'public/sessions'
     }
+    root to: "homes#top"
     # get 'outfits' => 'outfits#index'
   end
 
