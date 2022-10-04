@@ -3,6 +3,6 @@ class Users::SessionsController < Devise::SessionsController
     user = User.guest
     # ゲストユーザーをログイン状態にする
     sign_in user
-    redirect_to root_path, notice: 'guestuserでログインしました。'
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 end
