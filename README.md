@@ -1,4 +1,4 @@
-# minimums_code
+# minimums_Code
 
 ## サイト概要
 ### サイトテーマ
