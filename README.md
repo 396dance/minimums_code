@@ -1,4 +1,4 @@
-# T-record
+# minimums_code
 
 ## サイト概要
 ### サイトテーマ
