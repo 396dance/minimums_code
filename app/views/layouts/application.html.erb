@@ -11,6 +11,7 @@
 
   <body>
     <header class="shadow-sm">
+      <!--会員サインイン-->
       <% if user_signed_in? %>
         <li>
           <%= link_to "Aboutページ", about_path %>
@@ -21,7 +22,23 @@
         <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
-      <% else %>
+
+      <!--管理者サインイン-->
+      <% elsif admin_signed_in? %>
+        <li>
+          <%= link_to "服装一覧ページ", admin_outfits_path %>
+        </li>
+        <li>
+          <%= link_to "会員一覧ページ", admin_users_path %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+        </li>
+
+
+
+      <!--ログアウト-->
+      <% else%>
         <li>
           <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
         </li>
