@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       sessions: 'public/sessions'
     }
     root to: "homes#top"
+    get "about" => "homes#about"
+    get '/users/mypage' =>'users#show'
     # get 'outfits' => 'outfits#index'
   end
 
