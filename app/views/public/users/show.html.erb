@@ -4,6 +4,7 @@
 <div>
   <h3><%= @user.nickname %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
+  <%=link_to @user.nickname, users_infomation_edit_path %>
 </div>
 
 <!-- ユーザーの投稿一覧 -->
