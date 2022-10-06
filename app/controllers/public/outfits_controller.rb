@@ -13,6 +13,8 @@ class Public::OutfitsController < ApplicationController
 
   def show
     @outfit = Outfit.find(params[:id])
+    @outfit_comment = OutfitComment.new
+    @outfit_comments = OutfitComment.all
   end
 
   private

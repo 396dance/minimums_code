@@ -8,3 +8,15 @@
 
 <h2>本文</h2>
 <p><%= @outfit.body %></p>
+
+<h2>投稿者</h2>
+<p><%= @outfit.user.nickname %></p>
+
+<div>
+  <p>コメント件数：<%= @outfit.outfit_comment.count %></p>
+  <% @outfit_comments.each do |outfit_comment| %>
+    <%= outfit_comment.user.name %>
+  <% end %>
+</div>
+
+

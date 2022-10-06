@@ -1,1 +1,13 @@
-<h1>会員のトップページ</h1>
+<h1>会員側のトップページ</h1>
+
+<h4>ランキング表示(↓未修正)</h4>
+<% @outfits.each do |outfit| %>
+
+  <%= link_to outfit_path(outfit.id) do %>
+     <%= image_tag outfit.image, size: "200x200" %>
+  <% end %>
+
+<% end %>
+
+<h4>タグ検索(＃●●とかのやつ)</h4>
+<h4>キーワード検索(フリー入力)</h4>

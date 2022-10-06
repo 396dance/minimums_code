@@ -1,1 +1,18 @@
 <h1>会員のマイページ</h1>
+
+<!-- ユーザーの詳細 -->
+<div>
+  <h3><%= @user.nickname %></h3>
+  <%= image_tag @user.get_profile_image(100,100) %>
+</div>
+
+<!-- ユーザーの投稿一覧 -->
+
+<% @outfits.each do |outfit| %>
+  <div>
+    <%= link_to outfit_path(outfit.id) do %>
+      <%= image_tag outfit.image %>
+    <% end %>
+    <p>説明：<%= outfit.body %></p>
+  </div>
+<% end %>
