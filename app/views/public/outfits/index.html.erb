@@ -1,0 +1,30 @@
+<h1>投稿一覧ページ</h1>
+<% @outfits.each do |outfit| %>
+
+  <p>タイトル</p>
+  <span>
+    <%=link_to outfit.title, outfit_path(outfit.id) %>
+  </span>
+  <p>本文</p>
+  <span>
+    <%= outfit.body %>
+  </span>
+
+
+  <p>画像</p>
+  <%= image_tag outfit.image, size: "200x200" %>
+
+<% end %>
+
+
+
+<h1>投稿フォーム</h1>
+  <%= form_with model: @outfit, url:'/outfits', method: :post do |f| %>
+    <h4>画像</h4>
+      <%= f.file_field :image, accept: "image/*" %>
+    <h4>タイトル</h4>
+      <%= f.text_field :title %>
+    <h4>本文</h4>
+      <%= f.text_area :body %>
+    <%= f.submit '投稿' %>
+  <% end %>

@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # ユーザーは服装の画像をたくさん投稿できる
+  has_many :images, dependent: :destroy
+
   # ゲストログインするための記述
   def self.guest
     find_or_create_by!(nickname: 'guestuser' ,email: 'guest@example.com') do |user|

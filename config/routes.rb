@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'outfits/index'
+    get 'outfits/show'
+  end
 # 顧客側
   devise_scope :user do
     post '/users/guest_sign_in', to: 'users/sessions#guest_sign_in'
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
       sessions: 'public/sessions'
     }
     root to: "homes#top"
+    resources :outfits, only: [ :index, :show, :create]
     get "about" => "homes#about"
     get '/users/mypage' =>'users#show'
     # get 'outfits' => 'outfits#index'
