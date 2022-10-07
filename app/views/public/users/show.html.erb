@@ -4,13 +4,11 @@
 <div>
   <h3><%= @user.nickname %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
-  <% if @user.nickname != "gestuser" %>
-    <div class='row'>
-      <%=link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn btn-outline-secondary" %>
-    </div>
+  <% if @user.id == current_user.id && @user.nickname != "guestuser" %>
+    <%=link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn btn-outline-secondary" %>
   <% else %>
     <div>
-      ゲストユーザーです
+      このユーザーではないのでプロフィール編集ボタン非表示
     </div>
   <% end %>
 </div>
