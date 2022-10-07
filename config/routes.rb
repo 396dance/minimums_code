@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-# 顧客側
+# 会員側
+  # ゲストログイン
   devise_scope :user do
     post '/users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
 
+  # 会員側
   scope module: :public do
     devise_for :users, skip: [:passwords],  controllers: {
       registrations: "public/registrations",
@@ -16,9 +18,6 @@ Rails.application.routes.draw do
       resources :outfit_commnets, only: [ :create]
     end
     resources :users, only: [:show, :edit, :update]
-    # get '/users/mypage' => 'users#show'
-    # get '/users/infomation/edit' => 'users#edit'
-    # patch '/users/infomation' => 'users#update'
   end
 
 # 管理者側

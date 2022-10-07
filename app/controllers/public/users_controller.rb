@@ -6,13 +6,13 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = current_user
+    @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to users_mypage_path
+    redirect_to user_path(@user.id)
   end
 
   private

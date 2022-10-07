@@ -8,6 +8,10 @@
     <div class='row'>
       <%=link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn btn-outline-secondary" %>
     </div>
+  <% else %>
+    <div>
+      ゲストユーザーです
+    </div>
   <% end %>
 </div>
 
