@@ -1,10 +1,14 @@
-<h1>会員のマイページ</h1>
+<h1>会員の詳細ページ</h1>
 
 <!-- ユーザーの詳細 -->
 <div>
   <h3><%= @user.nickname %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
-  <%=link_to @user.nickname, users_infomation_edit_path %>
+  <% if @user.nickname != "gestuser" %>
+    <div class='row'>
+      <%=link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn btn-outline-secondary" %>
+    </div>
+  <% end %>
 </div>
 
 <!-- ユーザーの投稿一覧 -->

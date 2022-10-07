@@ -2,6 +2,7 @@ class Public::OutfitsController < ApplicationController
   def index
     @outfit = Outfit.new
     @outfits = Outfit.all
+    @users = User.all
   end
 
   def create

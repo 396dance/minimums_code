@@ -12,12 +12,13 @@ Rails.application.routes.draw do
     }
     root to: "homes#top"
     get "about" => "homes#about"
-    resources :outfits, only: [ :index, :show, :create] do
+    resources :outfits, only: [:index, :show, :create] do
       resources :outfit_commnets, only: [ :create]
     end
-    get '/users/mypage' => 'users#show'
-    get '/users/infomation/edit' => 'users#edit'
-    patch '/users/infomation' => 'users#update'
+    resources :users, only: [:show, :edit, :update]
+    # get '/users/mypage' => 'users#show'
+    # get '/users/infomation/edit' => 'users#edit'
+    # patch '/users/infomation' => 'users#update'
   end
 
 # 管理者側

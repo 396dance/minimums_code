@@ -1,19 +1,17 @@
 <h1>投稿一覧ページ</h1>
 <% @outfits.each do |outfit| %>
-
-  <p>タイトル</p>
-  <span>
-    <%=link_to outfit.title, outfit_path(outfit.id) %>
-  </span>
-  <p>本文</p>
-  <span>
-    <%= outfit.body %>
-  </span>
-
-
-  <p>画像</p>
-  <%= image_tag outfit.image, size: "200x200" %>
-
+  <p>
+    <%= image_tag outfit.image, size: "200x200" %>
+  </p>
+  <p>
+    タイトル：<%=link_to outfit.title, outfit_path(outfit.id) %>
+  </p>
+  <p>
+    本文：<%= outfit.body %>
+  </p>
+  <p>
+    投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
+  </p>
 <% end %>
 
 

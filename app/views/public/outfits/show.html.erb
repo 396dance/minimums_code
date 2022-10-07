@@ -10,7 +10,7 @@
 <p><%= @outfit.body %></p>
 
 <h2>投稿者</h2>
-<p><%= @outfit.user.nickname %></p>
+<p><%= link_to @outfit.user.nickname %></p>
 
 <div>
   <p>コメント件数：<%= @outfit.outfit_comment.count %></p>
