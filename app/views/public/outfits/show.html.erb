@@ -26,7 +26,11 @@
 
       <td><%= outfit_comment.user.nickname %></td>
       <td><%= outfit_comment.comment %></td>
-
+      <td>
+        <% if outfit_comment.user == current_user %>
+        <%= link_to "削除", outfit_outfit_comment_path(@outfit,outfit_comment), method: :delete, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>
