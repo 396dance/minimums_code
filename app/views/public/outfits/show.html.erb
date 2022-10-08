@@ -12,29 +12,11 @@
 <h2>投稿者</h2>
 <p><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></p>
 
+<!--コメント投稿フォームの部分テンプレート-->
+<%= render "public/outfit_comments/form", outfit: @outfit, outfit_comment: @outfit_comment %>
 
-<!--コメント投稿フォーム-->
-<%= form_with model: [@outfit,@outfit_comment], url: outfit_outfit_comments_path(@outfit), method: :post do |comment| %>
-<%= comment.text_area :comment, placeholder: "コメントをここに" %>
-<%= comment.submit "送信" %>
-<% end %>
-
-<table>
-  <tbody>
-    <% @outfit_comments.each do |outfit_comment| %>
-    <tr>
-
-      <td><%= outfit_comment.user.nickname %></td>
-      <td><%= outfit_comment.comment %></td>
-      <td>
-        <% if outfit_comment.user == current_user %>
-        <%= link_to "削除", outfit_outfit_comment_path(@outfit,outfit_comment), method: :delete, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<!--コメント一覧の部分テンプレート-->
+<%= render "public/outfit_comments/index", outfit_comments: @outfit_comments %>
 
 <div>
   <p>コメント件数：<%= @outfit.outfit_comment.count %></p>
