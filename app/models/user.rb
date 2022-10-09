@@ -5,9 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # ユーザーは服装をたくさん投稿できる
-  has_many :outfit,         dependent: :destroy
+  has_many :outfits,         dependent: :destroy
   # ユーザーはたくさんコメントできる
-  has_many :outfit_comment, dependent: :destroy
+  has_many :outfit_comments, dependent: :destroy
+  # ユーザーはたくさんいいねできる
+  has_many :favorites, dependent: :destroy
 
   # ユーザー画像を扱えるようにする
   has_one_attached :profile_image

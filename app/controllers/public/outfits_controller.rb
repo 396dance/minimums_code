@@ -15,7 +15,6 @@ class Public::OutfitsController < ApplicationController
   def show
     @outfit = Outfit.find(params[:id])
     @outfit_comment = OutfitComment.new
-    @outfit_comments = @outfit.outfit_comment
   end
 
   private

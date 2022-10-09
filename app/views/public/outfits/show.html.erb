@@ -12,6 +12,17 @@
 <h2>投稿者</h2>
 <p><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></p>
 
+<!--いいねボタン-->
+<% if @outfit.favorited?(current_user) %>
+  <%= link_to outfit_favorites_path(@outfit), method: :delete do %>
+    ♥<%= @outfit.favorites.count %>
+  <% end %>
+<% else %>
+  <%= link_to outfit_favorites_path(@outfit), method: :post do %>
+    ♡<%= @outfit.favorites.count %>
+  <% end %>
+<% end %>
+
 <!--コメント投稿フォームの部分テンプレート-->
 <div id="comment_form">
   <%= render "public/outfit_comments/form", outfit: @outfit, outfit_comment: @outfit_comment %>
@@ -22,7 +33,7 @@
 </div>
 
 <div>
-  <p>コメント件数：<%= @outfit.outfit_comment.count %></p>
+  <p>コメント件数：<%= @outfit.outfit_comments.count %></p>
 </div>
 
 
