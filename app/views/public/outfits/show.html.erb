@@ -13,10 +13,13 @@
 <p><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></p>
 
 <!--コメント投稿フォームの部分テンプレート-->
-<%= render "public/outfit_comments/form", outfit: @outfit, outfit_comment: @outfit_comment %>
-
+<div id="comment_form">
+  <%= render "public/outfit_comments/form", outfit: @outfit, outfit_comment: @outfit_comment %>
+</div>
 <!--コメント一覧の部分テンプレート-->
-<%= render "public/outfit_comments/index", outfit_comments: @outfit_comments %>
+<div id="comments-area">
+  <%= render "public/outfit_comments/index", outfit: @outfit, outfit_comments: @outfit_comments %>
+</div>
 
 <div>
   <p>コメント件数：<%= @outfit.outfit_comment.count %></p>

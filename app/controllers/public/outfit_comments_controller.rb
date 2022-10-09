@@ -1,18 +1,18 @@
 class Public::OutfitCommentsController < ApplicationController
 
   def create
-    outfit = Outfit.find(params[:outfit_id])
-    comment = OutfitComment.new(outfit_comment_params)
-    comment.user_id = current_user.id
-    comment.outfit_id = outfit.id
-    comment.save
-    redirect_to outfit_path(outfit.id)
+    @outfit = Outfit.find(params[:outfit_id])
+    @outfit_comment = OutfitComment.new(outfit_comment_params)
+    @outfit_comments = @outfit.outfit_comment
+    @outfit_comment.user_id = current_user.id
+    @outfit_comment.outfit_id = @outfit.id
+    @outfit_comment.save
   end
 
   def destroy
-    @outfit_comment = OutfitComment.find(params[:id])
+    @outfit = Outfit.find(params[:outfit_id])
+    @outfit_Comment = OutfitComment.find(params[:id])
     @outfit_comment.destroy
-    redirect_to request.referer
   end
 
 

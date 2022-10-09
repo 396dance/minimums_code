@@ -1,5 +1,5 @@
 <!--コメント投稿フォーム-->
-<%= form_with model: [outfit,outfit_comment], url: outfit_outfit_comments_path(outfit), method: :post do |comment| %>
-<%= comment.text_area :comment, placeholder: "コメントをここに" %>
-<%= comment.submit "送信" %>
+<%= form_with model: [outfit,outfit_comment], url: outfit_outfit_comments_path(outfit), method: :post, local: false do |comment| %>
+  <%= comment.text_area :comment, placeholder: "コメントをここに" %>
+  <%= comment.submit "送信" %>
 <% end %>
