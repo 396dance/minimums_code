@@ -5,5 +5,5 @@ class Favorite < ApplicationRecord
   belongs_to :outfit
 
   # 1人のユーザーはいいね1回まで
-  # validates_uniqueness_of :outfit_id, scope: :user_id
+  validates_uniqueness_of :outfit_id, scope: :user_id
 end

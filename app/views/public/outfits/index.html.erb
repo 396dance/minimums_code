@@ -13,6 +13,16 @@
   <p>
     投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
   </p>
+  <!--いいねボタン-->
+  <% if outfit.favorited?(current_user) %>
+    <%= link_to outfit_favorites_path(outfit.id), method: :delete do %>
+      ♥<%= outfit.favorites.count %>
+    <% end %>
+  <% else %>
+    <%= link_to outfit_favorites_path(outfit.id), method: :post do %>
+      ♡<%= outfit.favorites.count %>
+    <% end %>
+  <% end %>
 <% end %>
 
 
