@@ -2,9 +2,7 @@ class Public::OutfitCommentsController < ApplicationController
 
   def create
     @outfit = Outfit.find(params[:outfit_id])
-    @outfit_comment = OutfitComment.new(outfit_comment_params)
-    @outfit_comments = @outfit.outfit_comment
-    @outfit_comment.user_id = current_user.id
+    @outfit_comment = current_user.outfit_comments.new(outfit_comment_params)
     @outfit_comment.outfit_id = @outfit.id
     @outfit_comment.save
   end
