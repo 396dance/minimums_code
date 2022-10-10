@@ -9,7 +9,7 @@ class Public::OutfitCommentsController < ApplicationController
 
   def destroy
     @outfit = Outfit.find(params[:outfit_id])
-    @outfit_Comment = OutfitComment.find(params[:id])
+    @outfit_comment = OutfitComment.find(params[:id])
     @outfit_comment.destroy
   end
 
