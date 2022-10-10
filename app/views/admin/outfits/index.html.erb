@@ -1,1 +1,17 @@
 <h1>管理者側の服装一覧ページ</h1>
+
+<% @outfits.each do |outfit| %>
+  <p>
+    <%= image_tag outfit.image, size: "200x200" %>
+  </p>
+  <p>
+    タイトル：<%=link_to outfit.title, admin_outfit_path(outfit.id) %>
+  </p>
+  <p>
+    本文：<%= outfit.body %>
+  </p>
+  <p>
+    投稿者：<%= link_to outfit.body, admin_user_path(outfit.user.id) %>
+  </p>
+
+<% end %>

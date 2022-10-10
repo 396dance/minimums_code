@@ -1,1 +1,22 @@
 <h1>管理者側の服装詳細ページ</h1>
+
+<p><%= image_tag @outfit.image %></p>
+
+<h4>タイトル</h4>
+<p><%= @outfit.title %></p>
+
+<h4>本文</h4>
+<p><%= @outfit.body %></p>
+
+<h4>投稿者</h4>
+<p><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></p>
+
+<!--コメント一覧の部分テンプレート-->
+<div id="comments-area">
+  <%= render "public/outfit_comments/index", outfit: @outfit, outfit_comments: @outfit_comments %>
+</div>
+<h2>削除ボタン実装要</h2>
+
+<div>
+  <p>コメント件数：<%= @outfit.outfit_comments.count %></p>
+</div>

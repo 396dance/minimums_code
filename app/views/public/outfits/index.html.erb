@@ -11,7 +11,7 @@
     本文：<%= outfit.body %>
   </p>
   <p>
-    投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
+    投稿者：<%= link_to outfit.body, user_path(outfit.user.id) %>
   </p>
   <!--いいねボタン-->
   <div id="favorite_buttons_<%= outfit.id %>">

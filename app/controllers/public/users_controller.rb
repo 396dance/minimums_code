@@ -4,7 +4,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @outfits = @user.outfit
+    @outfits = @user.outfits
   end
 
   def edit
