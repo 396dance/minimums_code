@@ -1,0 +1,10 @@
+<!--いいねボタン-->
+<% if outfit.favorited?(current_user) %>
+  <%= link_to outfit_favorites_path(outfit), method: :delete, remote: true do %>
+    ♥<%= outfit.favorites.count %>
+  <% end %>
+<% else %>
+  <%= link_to outfit_favorites_path(outfit), method: :post, remote: true do %>
+    ♡<%= outfit.favorites.count %>
+  <% end %>
+<% end %>
