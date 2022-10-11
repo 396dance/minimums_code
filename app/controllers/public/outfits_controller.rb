@@ -1,6 +1,6 @@
 class Public::OutfitsController < ApplicationController
   # ログインしていないとページ見れない(topページAboutページのみ見れる)
-  # before_action :authenticate_user!, except: [:top, :about]
+  before_action :authenticate_user!, except: [:top, :about]
 
   def index
     @outfit = Outfit.new
