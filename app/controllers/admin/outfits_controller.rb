@@ -1,5 +1,6 @@
 class Admin::OutfitsController < ApplicationController
-
+   # adminがログインしていないとページ見れない
+  before_action :authenticate_admin!
 
   def index
     @outfits = Outfit.all
