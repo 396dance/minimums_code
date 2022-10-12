@@ -13,9 +13,8 @@
 
 <!--コメント一覧の部分テンプレート-->
 <div id="comments-area">
-  <%= render "public/outfit_comments/index", outfit: @outfit, outfit_comments: @outfit_comments %>
+  <%= render "admin/outfit_comments/index", outfit: @outfit, outfit_comments: @outfit_comments %>
 </div>
-<h2>削除ボタン実装要</h2>
 
 <div>
   <p>コメント件数：<%= @outfit.outfit_comments.count %></p>

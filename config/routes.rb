@@ -28,8 +28,10 @@ Rails.application.routes.draw do
 
   # 管理者側urlにadminを入れる記述(後で必要なものだけにする)
   namespace :admin do
-    resources :outfits, only: [ :index, :show]
-    resources :users,   only: [ :index, :edit, :update]
+    resources :outfits, only: [ :index, :show] do
+      resources :outfit_comments, only: [:destroy]
+    end
+    resources :users,   only: [ :index, :show, :edit, :update]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

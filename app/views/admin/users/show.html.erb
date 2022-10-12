@@ -1,0 +1,21 @@
+<h1>管理者側の会員の詳細ページ</h1>
+
+<!-- ユーザーの詳細 -->
+<div>
+  <h3><%= @user.nickname %></h3>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <p>自己紹介：<%= @user.introduction %></p>
+  <p>身長(㎝)：<%= @user.height %></p>
+  <%=link_to 'プロフィール編集', edit_admin_user_path(@user.id), class: "btn btn-outline-secondary" %>
+</div>
+
+<!-- ユーザーの投稿一覧 -->
+
+<% @outfits.each do |outfit| %>
+  <div>
+    <%= link_to outfit_path(outfit.id) do %>
+      <%= image_tag outfit.image %>
+    <% end %>
+    <p>説明：<%= outfit.body %></p>
+  </div>
+<% end %>

@@ -10,4 +10,6 @@ class Admin::OutfitsController < ApplicationController
     @outfit = Outfit.find(params[:id])
     @outfit_comment = OutfitComment.new
   end
+  
+  
 end

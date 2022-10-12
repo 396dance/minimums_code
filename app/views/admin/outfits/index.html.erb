@@ -11,7 +11,7 @@
     本文：<%= outfit.body %>
   </p>
   <p>
-    投稿者：<%= link_to outfit.body, admin_user_path(outfit.user.id) %>
+    投稿者：<%= link_to outfit.user.nickname, admin_user_path(outfit.user.id) %>
   </p>
 
 <% end %>
