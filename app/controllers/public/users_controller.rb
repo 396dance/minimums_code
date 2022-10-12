@@ -30,7 +30,7 @@ class Public::UsersController < ApplicationController
 
   def close
     @user = current_user
-    @user.update(is_deleted: false)
+    @user.update(is_deleted: true)
     sign_out
     flash[:notice] = "退会処理を実行しました"
     redirect_to root_path

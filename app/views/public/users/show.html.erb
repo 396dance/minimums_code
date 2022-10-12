@@ -1,19 +1,23 @@
 <h1>会員の詳細ページ</h1>
 
 <!-- ユーザーの詳細 -->
-<div>
-  <h3><%= @user.nickname %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <p>自己紹介：<%= @user.introduction %></p>
-  <p>身長(㎝)：<%= @user.height %></p>
-  <% if @user.id == current_user.id && @user.nickname != "guestuser" %>
-    <%=link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn btn-outline-secondary" %>
+<% if @user.is_deleted %>
+    <p>こちらのユーザーは退会しています</p>
   <% else %>
     <div>
-      このユーザーではないのでプロフィール編集ボタン非表示
+      <h3><%= @user.nickname %></h3>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <p>自己紹介：<%= @user.introduction %></p>
+      <p>身長(㎝)：<%= @user.height %></p>
+      <% if @user.id == current_user.id && @user.nickname != "guestuser" %>
+        <%=link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn btn-outline-secondary" %>
+      <% else %>
+        <div>
+          このユーザーではないのでプロフィール編集ボタン非表示
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
+<% end %>
 
 <!-- ユーザーの投稿一覧 -->
 

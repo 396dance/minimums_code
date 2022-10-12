@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # ログイン時に退会済みのユーザーが同じアカウントでログイン出来ないよう制約を設ける
   # is_deletedがfalseならtrueを返すようにする
   def active_for_authentication?
-    super && (is_deleted == true)
+    super && (is_deleted == false)
   end
 
   # ユーザーは服装をたくさん投稿できる
