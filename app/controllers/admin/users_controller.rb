@@ -2,6 +2,10 @@ class Admin::UsersController < ApplicationController
   # adminがログインしていないとページ見れない
   before_action :authenticate_admin!
 
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find(params[:id])
     @outfits = @user.outfits
@@ -19,7 +23,7 @@ class Admin::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user). permit(:nickname, :introduction, :profile_image, :height)
+    params.require(:user). permit(:nickname, :introduction, :profile_image, :height, :is_deleted)
   end
 
 end
