@@ -23,6 +23,20 @@ class Public::UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
 
+  # 退会処理
+  def quit
+    @user = current_user
+  end
+
+  def close
+    @user = current_user
+    @user.update(is_deleted: false)
+    sign_out
+    flash[:notice] = "退会処理を実行しました"
+    redirect_to root_path
+  end
+
+
   private
   def user_params
     params.require(:user). permit(:nickname, :introduction, :profile_image, :height)

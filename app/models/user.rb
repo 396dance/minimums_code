@@ -4,6 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # ログイン時に退会済みのユーザーが同じアカウントでログイン出来ないよう制約を設ける
+  # is_deletedがfalseならtrueを返すようにする
+  def active_for_authentication?
+    super && (is_deleted == true)
+  end
+
   # ユーザーは服装をたくさん投稿できる
   has_many :outfits,         dependent: :destroy
   # ユーザーはたくさんコメントできる

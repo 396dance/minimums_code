@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       resources :outfit_comments, only: [:create, :destroy]
     end
     resources :users, only: [:show, :edit, :update]
+    get '/users/:id/quit' => 'users#quit'
+    patch '/users/:id/close' => 'users#close'
   end
 
 # 管理者側

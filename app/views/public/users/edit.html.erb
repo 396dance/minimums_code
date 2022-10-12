@@ -7,6 +7,7 @@
   <label for="inputImage">ProfileImage</label>
   <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
   <%= f.select(:height, (130..170)) %>
+  <%= link_to "退会", "/users/#{@user.id}/quit" %>
 
 
   <%= f.submit "変更を保存" %>
