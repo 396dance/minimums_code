@@ -20,6 +20,12 @@ class Public::OutfitsController < ApplicationController
     @outfit_comment = OutfitComment.new
   end
 
+  def destroy
+    @outfit = Outfit.find(params[:id])
+    @outfit.destroy
+    redirect_to outfits_path
+  end
+
   private
   def outfit_params
     params.require(:outfit).permit(:image, :title, :body)

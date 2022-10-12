@@ -1,8 +1,6 @@
 class Public::UsersController < ApplicationController
   # コントローラ内のeditアクションが実行される前に動作する
   before_action :ensure_guest_user, only: [:edit]
-  # コントローラ内のedit,update,destroyアクションが実行される前に動作する
-  before_action :ensure_user, only: [:edit, :update, :destroy]
 
   def show
     @user = User.find(params[:id])

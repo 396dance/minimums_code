@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     }
     root to: "homes#top"
     get "about" => "homes#about"
-    resources :outfits, only: [:index, :show, :create] do
+    resources :outfits, only: [:index, :show, :create, :destroy] do
       resource :favorites, only: [:create, :destroy]
       resources :outfit_comments, only: [:create, :destroy]
     end
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   # 管理者側urlにadminを入れる記述(後で必要なものだけにする)
   namespace :admin do
-    resources :outfits, only: [ :index, :show] do
+    resources :outfits, only: [ :index, :show, :destroy] do
       resources :outfit_comments, only: [:destroy]
     end
     resources :users,   only: [ :index, :show, :edit, :update]

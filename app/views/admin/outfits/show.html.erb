@@ -9,7 +9,9 @@
 <p><%= @outfit.body %></p>
 
 <h4>投稿者</h4>
-<p><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></p>
+<p><%= link_to @outfit.user.nickname, admin_user_path(@outfit.user.id) %></p>
+
+<%= link_to "投稿を削除する", admin_outfit_path(@outfit), method: :delete, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
 
 <!--コメント一覧の部分テンプレート-->
 <div id="comments-area">
