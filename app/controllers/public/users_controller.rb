@@ -9,6 +9,12 @@ class Public::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    # URLに直接編集ページを入力した際、ログインユーザーじゃなければ開けないようにする
+    unless @user == current_user
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
 
   def update
