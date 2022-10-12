@@ -4,6 +4,8 @@
 <div>
   <h3><%= @user.nickname %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
+  <p>自己紹介：<%= @user.introduction %></p>
+  <p>身長(㎝)：<%= @user.height %></p>
   <% if @user.id == current_user.id && @user.nickname != "guestuser" %>
     <%=link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn btn-outline-secondary" %>
   <% else %>
