@@ -5,9 +5,9 @@ class Outfit < ApplicationRecord
   # 服装の投稿はユーザーに属する
   belongs_to :user
   # 服装の投稿はたくさんコメントされる
-  has_many   :outfit_comments, dependent: :destroy
+  has_many :outfit_comments, dependent: :destroy
   # 服装の投稿はたくさんいいねされる
-  has_many   :favorites, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   # 「ログイン中のユーザーがその投稿に対していいねをしているか」を判断するメソッドを定義
   def favorited?(user)

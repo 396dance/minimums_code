@@ -14,18 +14,18 @@ Rails.application.routes.draw do
   # 通常ログイン
   scope module: :public do
     devise_for :users, skip: [:passwords],  controllers: {
-      registrations:  'public/registrations',
-      sessions:       'public/sessions'
+      registrations: 'public/registrations',
+      sessions: 'public/sessions'
     }
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    resources :outfits,         only: [:index, :show, :create, :destroy] do
-      resource  :favorites,         only: [:create, :destroy]
-      resources :outfit_comments,   only: [:create, :destroy]
+    resources :outfits, only: [:index, :show, :create, :destroy] do
+      resource  :favorites, only: [:create, :destroy]
+      resources :outfit_comments, only: [:create, :destroy]
     end
-    resources :users,           only: [:show, :edit, :update]
-    get   '/users/:id/quit'   => 'users#quit'
-    patch '/users/:id/close'  => 'users#close'
+    resources :users, only: [:show, :edit, :update]
+    get   '/users/:id/quit' => 'users#quit'
+    patch '/users/:id/close' => 'users#close'
   end
 
 # 管理者側
@@ -38,8 +38,8 @@ Rails.application.routes.draw do
     resources :outfits, only: [ :index, :show, :destroy] do
       resources :outfit_comments, only: [:destroy]
     end
-    resources :comments,  only: [:index, :destroy]
-    resources :users,     only: [:index, :show, :edit, :update]
+    resources :comments, only: [:index, :destroy]
+    resources :users, only: [:index, :show, :edit, :update]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
