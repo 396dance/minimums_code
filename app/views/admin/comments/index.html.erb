@@ -1,0 +1,18 @@
+<!--コメント一覧-->
+<table>
+  <thead>
+    <th><%= "ニックネーム" %></th>
+    <th><%= "コメント内容" %></th>
+  </thead>
+  <tbody>
+    <% @outfit_comments. each do |outfit_comment| %>
+    <tr>
+      <td><%= outfit_comment.user.nickname %></td>
+      <td><%= outfit_comment.comment %></td>
+      <td>
+        <%= link_to "削除", admin_comment_path(outfit_comment), method: :delete, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
