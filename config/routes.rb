@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'relationships/followings'
+  get 'relationships/followers'
   namespace :admin do
     get 'comments/index'
   end
