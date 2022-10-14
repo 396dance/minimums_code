@@ -17,8 +17,9 @@ class User < ApplicationRecord
   # ユーザーはたくさんいいねできる
   has_many :favorites, dependent: :destroy
 
-  # フォローをした、フォローされたの関係
+  # ユーザーはたくさんフォローできる
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  # ユーザーはたくさんフォローされる
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
 
   # フォローフォロワーを一覧画面で使うための記述
