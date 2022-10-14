@@ -6,7 +6,7 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= user.nickname %></td>
+          <td><%= link_to user.nickname, user_path(user.id) %></td>
         </tr>
       <% end %>
     </tbody>
@@ -15,6 +15,7 @@
     <tbody>
       <% @outfits.each do |outfit| %>
         <tr>
+          <td><%=link_to outfit.title, outfit_path(outfit.id) %></td>
           <td><%= outfit.title %></td>
           <td><%= outfit.body %></td>
         </tr>
