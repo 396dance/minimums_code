@@ -42,6 +42,10 @@ class User < ApplicationRecord
   end
 
 
+  def self.looks(search, word)
+    @user = User.where("nickname LIKE?","%#{word}%")
+  end
+
   # ユーザー画像を扱えるようにする
   has_one_attached :profile_image
 

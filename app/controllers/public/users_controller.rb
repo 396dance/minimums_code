@@ -36,7 +36,6 @@ class Public::UsersController < ApplicationController
     redirect_to root_path
   end
 
-
   private
   def user_params
     params.require(:user). permit(:nickname, :introduction, :profile_image, :height)

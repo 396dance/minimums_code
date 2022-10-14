@@ -1,0 +1,24 @@
+<h2>Results index</h2>
+
+<table class="table table-hover table-inverse">
+  <!--検索対象モデルがUserの時 -->
+  <% if @range == "ニックネーム" %>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.nickname %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+    <tbody>
+      <% @outfits.each do |outfit| %>
+        <tr>
+          <td><%= outfit.title %></td>
+          <td><%= outfit.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

@@ -30,8 +30,9 @@ Rails.application.routes.draw do
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
     end
-    get   '/users/:id/quit' => 'users#quit'
+    get '/users/:id/quit' => 'users#quit'
     patch '/users/:id/close' => 'users#close'
+    get 'search' => 'searches#search'
   end
 
 # 管理者側

@@ -9,6 +9,11 @@ class Outfit < ApplicationRecord
   # 服装の投稿はたくさんいいねされる
   has_many :favorites, dependent: :destroy
 
+
+  def self.looks(search, word)
+    @outfit = Outfit.where("title LIKE?","%#{word}%")
+  end
+
   # 「ログイン中のユーザーがその投稿に対していいねをしているか」を判断するメソッドを定義
   def favorited?(user)
     favorites.where(user_id: user.id).exists?

@@ -13,6 +13,10 @@
     <header class="shadow-sm">
       <!--会員サインイン-->
       <% if user_signed_in? %>
+
+        <!--検索フォーム-->
+        <%= render "public/searches/search" %>
+
         <li>
           <%= link_to "Aboutページ", about_path %>
         </li>
