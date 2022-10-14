@@ -10,15 +10,11 @@
     <p>自己紹介：<%= @user.introduction %></p>
     <p>身長(㎝)：<%= @user.height %></p>
 
-    <p>フォロー数: <%= @user.followings.count %></p>
-    <p>フォロワー数: <%= @user.followers.count %></p>
+    <p>フォロー数：<%= link_to @user.followings.count, user_followings_path(@user) %></p>
+    <p>フォロワー数：<%= link_to @user.followers.count, user_followers_path(@user) %></p>
 
     <!--フォローボタン-->
-    <% if current_user.following?(@user) %>
-      <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete %>
-    <% else %>
-      <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
-    <% end %>
+    <p><%= render 'public/relationships/follow_button', user: @user %></p>
 
     <!--プロフィール編集ボタン-->
     <% if @user.id == current_user.id && @user.nickname != "guestuser" %>
