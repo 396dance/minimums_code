@@ -9,6 +9,10 @@
 <h2>本文</h2>
 <p><%= @outfit.body %></p>
 
+<% @outfit.tags.each do |tag| %>
+    <span><%= tag.name %></span>
+<% end %>
+
 <h2>投稿者</h2>
 <p><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></p>
 

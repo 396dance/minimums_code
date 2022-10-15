@@ -28,6 +28,8 @@ class Public::OutfitsController < ApplicationController
 
   private
   def outfit_params
-    params.require(:outfit).permit(:image, :title, :body)
+    params.require(:outfit).permit(:image, :title, :body, :name, tag_ids: [] )
   end
+
+
 end
