@@ -1,0 +1,8 @@
+<h1>いいね一覧</h1>
+
+<% @favorites_outfits.each do |outfit|%>
+  <p>タイトル</p>
+  <p>
+    <%= link_to outfit.title, outfit_path(outfit.id) %>
+  </p>
+<% end %>

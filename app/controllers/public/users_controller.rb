@@ -23,6 +23,13 @@ class Public::UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
 
+  # いいねの一覧表示
+  def favorites
+    @user = User.find(params[:id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:outfit_id)
+    @favorites_outfits = Outfit.find(favorites)
+  end
+
   # 退会処理
   def quit
     @user = current_user

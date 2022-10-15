@@ -13,6 +13,8 @@
     <p>フォロー数：<%= link_to @user.followings.count, user_followings_path(@user) %></p>
     <p>フォロワー数：<%= link_to @user.followers.count, user_followers_path(@user) %></p>
 
+    <%= link_to "いいねした投稿", favorites_user_path(@user) %>
+
     <!--フォローボタン-->
     <% if @user.id != current_user.id %>
       <p><%= render 'public/relationships/follow_button', user: @user %></p>
