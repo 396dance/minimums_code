@@ -6,6 +6,7 @@ class Public::OutfitsController < ApplicationController
     @outfit = Outfit.new
     @outfits = Outfit.all
     @users = User.all
+    @outfits = params[:tag_id].present? ? Tag.find(params[:tag_id]).outfits : Outfit.all
   end
 
   def create
@@ -28,7 +29,7 @@ class Public::OutfitsController < ApplicationController
 
   private
   def outfit_params
-    params.require(:outfit).permit(:image, :title, :body, :name, tag_ids: [] )
+    params.require(:outfit).permit(:image, :title, :body, tag_ids: [])
   end
 
 

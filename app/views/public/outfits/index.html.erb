@@ -1,3 +1,9 @@
+<!--タグ検索フォーム-->
+<%= form_tag outfits_path, method: :get, class: 'boards__searchForm' do %>
+  <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),{prompt: 'タグで絞り込み検索',onchange: 'submit(this.form);'}%>
+<% end %>
+
+
 <h1>投稿一覧ページ</h1>
 
 <% @outfits.each do |outfit| %>
@@ -10,6 +16,10 @@
   <p>
     本文：<%= outfit.body %>
   </p>
+  <p>タグ：</p>
+    <% outfit.tags.each do |tag| %>
+      <span><%= tag.name %></span>
+    <% end %>
   <p>
     投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
   </p>
