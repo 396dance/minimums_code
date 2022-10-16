@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'relationships/followings'
-    get 'relationships/followers'
-  end
+  # ↓なぜあるのか不明
+  # namespace :public do
+  #   get 'relationships/followings'
+  #   get 'relationships/followers'
+  # end
   namespace :admin do
     get 'comments/index'
   end
