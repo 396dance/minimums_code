@@ -1,6 +1,8 @@
 class Public::UsersController < ApplicationController
   # コントローラ内のeditアクションが実行される前に動作する
   before_action :ensure_guest_user, only: [:edit]
+  # userがログインしていないとページ見れない
+  before_action :authenticate_user!
 
   def show
     @user = User.find(params[:id])
