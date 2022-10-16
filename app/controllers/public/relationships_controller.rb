@@ -1,4 +1,6 @@
 class Public::RelationshipsController < ApplicationController
+  # userがログインしていないとページ見れない
+  before_action :authenticate_user!
 
   # フォローするとき
   def create
