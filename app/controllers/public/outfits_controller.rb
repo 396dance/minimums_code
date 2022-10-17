@@ -13,7 +13,7 @@ class Public::OutfitsController < ApplicationController
     outfit = Outfit.new(outfit_params)
     outfit.user_id = current_user.id
     outfit.save
-    redirect_to outfits_path
+    redirect_to outfit_path(outfit.id)
   end
 
   def show
