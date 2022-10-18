@@ -5,14 +5,24 @@
 /********************
  * 共通デザイン
  ********************/
+// * {
+//   margin: 0; padding: 0;
+// }
 
-
-
+body {
+  padding-top: 56px;
+  padding-bottom: 40px;
+}
 
 /********************
  * ログイン・新規登録画面
  ********************/
 .registration-wrap,
 .login-wrap {
-  height: calc(100vh - 78px - 40px);
+  height: calc(100vh - 56px - 40px);
+  background-color: #f5f5f5;
+}
+
+body {
+  background-color: #f5f5f5;
 }
