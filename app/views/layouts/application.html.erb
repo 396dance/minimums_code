@@ -9,13 +9,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body  class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
+  <body>
+    <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+        <div class="container-fluid">
 
           <!--ロゴ-->
-          <a class="navbar-brand p-3" href="/"><%= "ロゴ入れる" %></a>
+          <a class="navbar-brand" href="/">ロゴ入れる</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,8 +26,6 @@
             <ul class="navbar-nav ml-auto">
             <!--会員サインイン-->
               <% if user_signed_in? %>
-
-
 
                 <li class="nav-item">
                   <%= link_to "TOPページ", root_path, class: "btn btn-dark" %>
@@ -87,7 +85,7 @@
       </nav>
     </header>
 
-    <main class="mx-auto">
+    <main>
       <!--ログインしてくださいのエラーを出す-->
       <%= alert %>
       <!--ログインしましたの表示を出す-->
@@ -96,9 +94,9 @@
     </main>
 
 
-    <footer class="footer mx-auto">
-      <div class="container">
-        <p class="col-lg-4 text-lg-start">minimums_code.</p>
+    <footer class="container h-100 d-flex justify-content-center" >
+      <div>
+        <p>minimums_code.</p>
       </div>
     </footer>
 

@@ -1,2 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+/********************
+ * 共通デザイン
+ ********************/
+
+
+
+
+/********************
+ * ログイン・新規登録画面
+ ********************/
+.registration-wrap,
+.login-wrap {
+  height: calc(100vh - 78px - 40px);
+}
