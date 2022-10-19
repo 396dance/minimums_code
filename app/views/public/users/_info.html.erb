@@ -1,0 +1,56 @@
+<!-- ユーザーの詳細 -->
+<% if user.is_deleted %>
+  <p>こちらのユーザーは退会しています</p>
+<% else %>
+  <table class='table'>
+    <tr><%= image_tag user.get_profile_image(100,100) %></tr>
+    <tr>
+      <th>ニックネーム</th>
+      <th><%= user.nickname %></th>
+    </tr>
+    <tr>
+      <th>自己紹介</th>
+      <th><%= user.introduction %></th>
+    </tr>
+    <tr>
+      <th>身長(㎝)</th>
+      <th><%= user.height %></th>
+    </tr>
+    <tr>
+      <th>フォロー数</th>
+      <th><%= link_to user.followings.count, user_followings_path(user) %></th>
+    </tr>
+    <tr>
+      <th>フォロワー数</th>
+      <th><%= link_to user.followers.count, user_followers_path(user) %></th>
+    </tr>
+    <tr>
+      <th>お気に入り</th>
+      <th><%= link_to "いいねした投稿", favorites_user_path(user) %></th>
+    </tr>
+
+
+    <tr>
+      <th>
+        <!--フォローボタン-->
+        <% if user.id != current_user.id %>
+          <p><%= render 'public/relationships/follow_button', user: user %></p>
+        <% else %>
+          <p>current_userなのでフォローボタンを表示しない</p>
+        <% end %>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <!--プロフィール編集ボタン-->
+        <% if user.id == current_user.id && user.nickname != "guestuser" %>
+          <%=link_to 'プロフィール編集', edit_user_path(user.id), class: "btn btn-outline-secondary" %>
+        <% else %>
+          <div>
+            このユーザーではない又はゲストユーザーなのでプロフィール編集ボタン非表示
+          </div>
+        <% end %>
+      </th>
+    </tr>
+  </table>
+<% end %>
