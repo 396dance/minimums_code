@@ -1,5 +1,13 @@
 <h1>投稿詳細ページ</h1>
 
+<h2>プロフィール部分テンプレート</h2>
+<%= render 'public/users/info', user: @user %>
+
+<!--投稿フォーム-->
+<%= render 'public/outfits/form', outfit: @outfits %>
+
+
+
 <h2>画像</h2>
 <p><%= image_tag @outfit.image %></p>
 
