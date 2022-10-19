@@ -17,8 +17,8 @@ class Public::OutfitsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @outfit = Outfit.find(params[:id])
+    @user = @outfit.user
     @outfits = Outfit.new
     @outfit_comment = OutfitComment.new
   end
