@@ -1,51 +1,57 @@
-<h1>投稿詳細ページ</h1>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h1>投稿詳細ページ</h1>
 
-<h2>プロフィール部分テンプレート</h2>
-<%= render 'public/users/info', user: @user %>
+      <h2>プロフィール部分テンプレート</h2>
+      <%= render 'public/users/info', user: @user %>
 
-<!--投稿フォーム-->
-<%= render 'public/outfits/form', outfit: @outfits %>
+      <!--投稿フォーム-->
+      <h2>投稿フォーム部分テンプレート</h2>
+      <%= render 'public/outfits/form', outfit: @outfits %>
+     </div>
 
+    <div class='col-md-8 offset-md-1'>
+      <h2>画像</h2>
+      <p><%= image_tag @outfit.image %></p>
 
+      <h2>タイトル</h2>
+      <p><%= @outfit.title %></p>
 
-<h2>画像</h2>
-<p><%= image_tag @outfit.image %></p>
+      <h2>本文</h2>
+      <p><%= @outfit.body %></p>
 
-<h2>タイトル</h2>
-<p><%= @outfit.title %></p>
+      <h2>タグ</h2>
+      <% @outfit.tags.each do |tag| %>
+        <span><%= tag.name %></span>
+      <% end %>
 
-<h2>本文</h2>
-<p><%= @outfit.body %></p>
+      <h2>投稿者</h2>
+      <p><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></p>
 
-<h2>タグ</h2>
-<% @outfit.tags.each do |tag| %>
-  <span><%= tag.name %></span>
-<% end %>
+      <% if @outfit.user == current_user %>
+        <%= link_to "投稿を削除する", outfit_path(@outfit), method: :delete, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
+      <% else %>
+        <p>※この投稿は現在ログインしているユーザーの投稿ではないため削除ボタンを表示しない</p>
+      <% end %>
 
-<h2>投稿者</h2>
-<p><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></p>
+      <div id="favorite_buttons_<%= @outfit.id %>">
+        <%= render "public/favorites/favorite", outfit: @outfit %>
+      </div>
 
-<% if @outfit.user == current_user %>
-  <%= link_to "投稿を削除する", outfit_path(@outfit), method: :delete, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
-<% else %>
-  <p>※この投稿は現在ログインしているユーザーの投稿ではないため削除ボタンを表示しない</p>
-<% end %>
+      <!--コメント投稿フォームの部分テンプレート-->
+      <div id="comment_form">
+        <%= render "public/outfit_comments/form", outfit: @outfit, outfit_comment: @outfit_comment %>
+      </div>
+      <!--コメント一覧の部分テンプレート-->
+      <div id="comments-area">
+        <%= render "public/outfit_comments/index", outfit: @outfit, outfit_comments: @outfit_comments %>
+      </div>
 
-<div id="favorite_buttons_<%= @outfit.id %>">
-  <%= render "public/favorites/favorite", outfit: @outfit %>
+      <div>
+        <p>コメント件数：<%= @outfit.outfit_comments.count %></p>
+      </div>
+
+    </div>
+  </div>
 </div>
-
-<!--コメント投稿フォームの部分テンプレート-->
-<div id="comment_form">
-  <%= render "public/outfit_comments/form", outfit: @outfit, outfit_comment: @outfit_comment %>
-</div>
-<!--コメント一覧の部分テンプレート-->
-<div id="comments-area">
-  <%= render "public/outfit_comments/index", outfit: @outfit, outfit_comments: @outfit_comments %>
-</div>
-
-<div>
-  <p>コメント件数：<%= @outfit.outfit_comments.count %></p>
-</div>
-
-
