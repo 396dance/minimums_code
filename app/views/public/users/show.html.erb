@@ -1,46 +1,21 @@
-<h1>会員の詳細ページ</h1>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
 
-<!-- ユーザーの詳細 -->
-<% if @user.is_deleted %>
-  <p>こちらのユーザーは退会しています</p>
-<% else %>
-  <div>
-    <h3><%= @user.nickname %></h3>
-    <%= image_tag @user.get_profile_image(100,100) %>
-    <p>自己紹介：<%= @user.introduction %></p>
-    <p>身長(㎝)：<%= @user.height %></p>
+      <h1>会員の詳細ページ</h1>
+      <h2>プロフィール部分テンプレート</h2>
+      <%= render 'public/users/info', user: @user %>
 
-    <p>フォロー数：<%= link_to @user.followings.count, user_followings_path(@user) %></p>
-    <p>フォロワー数：<%= link_to @user.followers.count, user_followers_path(@user) %></p>
+      <!--投稿フォーム-->
+      <h2>投稿フォーム部分テンプレート</h2>
+        <%= render 'public/outfits/form', outfit: @outfit %>
+    </div>
 
-    <%= link_to "いいねした投稿", favorites_user_path(@user) %>
+      <!-- ユーザーの投稿一覧 -->
+    <div  class='col-md-8 offset-md-1'>
+        <%= render 'public/outfits/index', outfits: @outfits %>
+    </div>
 
-    <!--フォローボタン-->
-    <% if @user.id != current_user.id %>
-      <p><%= render 'public/relationships/follow_button', user: @user %></p>
-    <% else %>
-      <p>current_userなのでフォローボタンを表示しない</p>
-    <% end %>
-
-    <!--プロフィール編集ボタン-->
-    <% if @user.id == current_user.id && @user.nickname != "guestuser" %>
-      <%=link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn btn-outline-secondary" %>
-    <% else %>
-      <div>
-        このユーザーではない又はゲストユーザーなのでプロフィール編集ボタン非表示
-      </div>
-    <% end %>
 
   </div>
-<% end %>
-
-<!-- ユーザーの投稿一覧 -->
-
-<% @outfits.each do |outfit| %>
-  <div>
-    <%= link_to outfit_path(outfit.id) do %>
-      <%= image_tag outfit.image %>
-    <% end %>
-    <p>説明：<%= outfit.body %></p>
-  </div>
-<% end %>
+</div>
