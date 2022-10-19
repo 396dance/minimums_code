@@ -1,8 +1,37 @@
-<h1>いいね一覧</h1>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
 
-<% @favorites_outfits.each do |outfit|%>
-  <p>タイトル</p>
-  <p>
-    <%= link_to outfit.title, outfit_path(outfit.id) %>
-  </p>
-<% end %>
+    <div class='col-md-3'>
+      <!--マイプロフィール-->
+      <h2>プロフィール部分テンプレート</h2>
+      <%= render 'public/users/info', user: current_user %>
+      <!--投稿フォーム-->
+      <%= render 'public/outfits/form', outfit: @outfit %>
+    </div>
+
+    <div class='col-md-8 offset-md-1'>
+
+      <h1>いいね一覧</h1>
+
+      <% @favorites_outfits.each do |outfit|%>
+        <p>
+          <%= image_tag outfit.image, size: "200x200" %>
+        </p>
+        <p>
+          タイトル：<%=link_to outfit.title, outfit_path(outfit.id) %>
+        </p>
+        <p>
+          本文：<%= outfit.body %>
+        </p>
+        <p>タグ：</p>
+          <% outfit.tags.each do |tag| %>
+            <span><%= tag.name %></span>
+          <% end %>
+        <p>
+          投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
+        </p>
+            <% end %>
+
+    </div>
+  </div>
+</div>

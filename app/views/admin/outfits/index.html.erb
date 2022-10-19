@@ -1,17 +1,28 @@
-<h1>管理者側の服装一覧ページ</h1>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col'>
 
-<% @outfits.each do |outfit| %>
-  <p>
-    <%= image_tag outfit.image, size: "200x200" %>
-  </p>
-  <p>
-    タイトル：<%=link_to outfit.title, admin_outfit_path(outfit.id) %>
-  </p>
-  <p>
-    本文：<%= outfit.body %>
-  </p>
-  <p>
-    投稿者：<%= link_to outfit.user.nickname, admin_user_path(outfit.user.id) %>
-  </p>
-
-<% end %>
+      <h1>管理者側の服装一覧ページ</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>投稿画像</th>
+            <th>タイトル</th>
+            <th>本文</th>
+            <th>投稿者</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @outfits.each do |outfit| %>
+            <tr>
+              <td><%= image_tag outfit.image, size: "100x100" %></td>
+              <td><%= link_to outfit.title, admin_outfit_path(outfit.id) %></td>
+              <td><%= outfit.body %></td>
+              <td><%= link_to outfit.user.nickname, admin_user_path(outfit.user.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
