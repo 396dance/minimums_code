@@ -15,7 +15,7 @@
         <tbody>
           <% @outfits.each do |outfit| %>
             <tr>
-              <td><%= image_tag outfit.image, size: "100x100" %></td>
+              <td><%= image_tag outfit.image, size: "50x50" %></td>
               <td><%= link_to outfit.title, admin_outfit_path(outfit.id) %></td>
               <td><%= outfit.body %></td>
               <td><%= link_to outfit.user.nickname, admin_user_path(outfit.user.id) %></td>
