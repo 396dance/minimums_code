@@ -13,15 +13,15 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-
           <!--ロゴ-->
-          <!--<div class="text-left">-->
-          <!--<a class="navbar-brand">-->
-            <!--<span  class= "text-left">-->
-              <%= link_to (image_tag "logo.png",size: "80x40"), root_path, class: 'navbar-brand' %>
-            <!--</span>-->
-          <!--</a>-->
-          <!--</div>-->
+          <%= link_to (image_tag "logo.png",size: "80x40"), root_path, class: 'navbar-brand' %>
+
+          <% if user_signed_in? %>
+            <!--会員のログイン時に表示-->
+            <div class ="d-flex align-items-center justify-content-center text-white">
+              ようこそ、<%= current_user.nickname %>さん！
+            </div>
+          <% end %>
 
           <!--ハンバーガーメニュー-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,6 +97,7 @@
       <%= alert %>
       <!--ログインしましたの表示を出す-->
       <%= notice %>
+      <!--各ページの記述を取ってくる-->
       <%= yield %>
     </main>
 
