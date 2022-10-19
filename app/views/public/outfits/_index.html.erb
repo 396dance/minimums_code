@@ -1,0 +1,29 @@
+<h2>投稿一覧ページ部分テンプレート化</h2>
+
+<!--検索フォーム-->
+<%= render "public/searches/search" %>
+
+
+<% outfits.each do |outfit| %>
+  <p>
+    <%= image_tag outfit.image, size: "200x200" %>
+  </p>
+  <p>
+    タイトル：<%=link_to outfit.title, outfit_path(outfit.id) %>
+  </p>
+  <p>
+    本文：<%= outfit.body %>
+  </p>
+  <p>タグ：</p>
+    <% outfit.tags.each do |tag| %>
+      <span><%= tag.name %></span>
+    <% end %>
+  <p>
+    投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
+  </p>
+  <!--いいねボタン-->
+  <div id="favorite_buttons_<%= outfit.id %>">
+    <%= render "public/favorites/favorite", outfit: outfit %>
+  </div>
+
+<% end %>

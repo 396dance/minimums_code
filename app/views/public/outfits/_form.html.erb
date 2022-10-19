@@ -1,6 +1,6 @@
 <!--投稿フォーム-->
 <h2>投稿フォーム部分テンプレート</h2>
-  <%= form_with model: @outfit, url:'/outfits', method: :post do |f| %>
+  <%= form_with model: outfit, url:'/outfits', method: :post do |f| %>
     <h4>画像</h4>
       <%= f.file_field :image, accept: "image/*" %>
     <h4>タイトル</h4>
