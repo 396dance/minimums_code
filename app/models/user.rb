@@ -4,6 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :nickname, presence: true
+  validates :nickname, uniqueness: true
+  validates :nickname, length: { in: 2..20 }
+  validates :introduction, length: { maximum: 200 }
+
+
+
   # ログイン時に退会済みのユーザーが同じアカウントでログイン出来ないよう制約を設ける
   # is_deletedがfalseならtrueを返すようにする
   def active_for_authentication?
