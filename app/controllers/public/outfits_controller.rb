@@ -10,10 +10,14 @@ class Public::OutfitsController < ApplicationController
   end
 
   def create
-    outfit = Outfit.new(outfit_params)
-    outfit.user_id = current_user.id
-    outfit.save
-    redirect_to outfit_path(outfit.id)
+    @outfits = Outfit.all
+    @outfit = Outfit.new(outfit_params)
+    @outfit.user_id = current_user.id
+    if @outfit.save
+      redirect_to outfit_path(outfit.id)
+    else
+      render :index
+    end
   end
 
   def show
