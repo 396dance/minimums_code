@@ -8,6 +8,7 @@ class Public::OutfitCommentsController < ApplicationController
   end
 
   def destroy
+    # OutfitComment.find_by(id: params[:id], outfit_id: params[:outfit_id]).destroy
     @outfit = Outfit.find(params[:outfit_id])
     @outfit_comment = OutfitComment.find(params[:id])
     @outfit_comment.destroy
