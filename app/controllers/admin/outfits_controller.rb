@@ -4,12 +4,12 @@ class Admin::OutfitsController < ApplicationController
   before_action :outfit_find, only: [:show, :destroy]
 
   def index
-    @outfits = Outfit.all
+    @outfits = Outfit.page(params[:page])
   end
 
   def show
     # @outfit = Outfit.find(params[:id])
-    @outfit_comment = OutfitComment.new
+    @outfit_comment = OutfitComment.page(params[:page])
   end
 
   def destroy
@@ -17,9 +17,9 @@ class Admin::OutfitsController < ApplicationController
     @outfit.destroy
     redirect_to admin_outfits_path
   end
-  
+
   private
-  
+
   def outfit_find
     @outfit = Outfit.find(params[:id])
   end

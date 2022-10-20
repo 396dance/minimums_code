@@ -1,6 +1,6 @@
 class Admin::CommentsController < ApplicationController
   def index
-    @outfit_comments = OutfitComment.all
+    @outfit_comments = OutfitComment.page(params[:page])
   end
 
   def destroy

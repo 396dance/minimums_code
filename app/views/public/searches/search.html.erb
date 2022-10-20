@@ -16,34 +16,49 @@
         <!--検索対象モデルがUserの時 -->
         <% if @range == "ニックネーム" %>
           <tbody>
-              <tr>
-                <th></th>
-                <th>ニックネーム</th>
-                <th>自己紹介</th>
-                <th>身長</th>
-              </tr>
-            <% @users.each do |user| %>
-              <tr>
-                <td><%= image_tag user.get_profile_image(100,100) %></td>
-                <td><%= link_to user.nickname, user_path(user.id) %></td>
-                <td><%= user.introduction %></td>
-                <td><%= user.height %></td>
-              </tr>
+            <tr>
+
+              <th></th>
+              <th>ニックネーム</th>
+              <th>自己紹介</th>
+              <th>身長</th>
+            </tr>
+            <tr>
+              <% if @users.size == 0 %>
+                <td></td>
+                <td>検索結果がありませんでした。</td>
+              <% end %>
+            </tr>
+              <% @users.each do |user| %>
+                <tr>
+                  <td><%= image_tag user.get_profile_image(100,100) %></td>
+                  <td><%= link_to user.nickname, user_path(user.id) %></td>
+                  <td><%= user.introduction %></td>
+                  <td><%= user.height %></td>
+                </tr>
+
             <% end %>
           </tbody>
         <% else %>
-          <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+          <!--検索対象モデルがUserではない時(= 検索対象モデルがOutfitの時) -->
           <tbody>
             <tr>
+
               <th></th>
               <th>タイトル</th>
               <th>本文</th>
               <th>投稿者</th>
             </tr>
+
+            <% if @outfits.size == 0 %>
+              <td></td>
+              <td>検索結果がありませんでした。</td>
+            <% end %>
+
             <% @outfits.each do |outfit| %>
             <tr>
-              <td><%= image_tag outfit.image,  size: "200x200" %></td>
-              <td><%=link_to outfit.title, outfit_path(outfit.id) %></td>
+              <td><%= image_tag outfit.image,  size: "100x100" %></td>
+              <td><%= link_to outfit.title, outfit_path(outfit.id) %></td>
               <td><%= outfit.body %></td>
               <td><%= link_to outfit.user.nickname, user_path(outfit.user.id) %></td>
             </tr>

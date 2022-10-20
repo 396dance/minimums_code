@@ -6,7 +6,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @outfits = @user.outfits
+    @outfits = @user.outfits.page(params[:page])
     @outfit = Outfit.new
   end
 

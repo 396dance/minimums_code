@@ -4,9 +4,9 @@ class Public::OutfitsController < ApplicationController
 
   def index
     @outfit = Outfit.new
-    @outfits = Outfit.all
+    @outfits = Outfit.page(params[:page])
     @users = User.all
-    @outfits = params[:tag_id].present? ? Tag.find(params[:tag_id]).outfits : Outfit.all
+    @outfits = params[:tag_id].present? ? Tag.find(params[:tag_id]).outfits : Outfit.page(params[:page])
   end
 
   def create

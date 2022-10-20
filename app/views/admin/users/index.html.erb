@@ -17,7 +17,7 @@
         <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td><%= image_tag user.get_profile_image(50,50) %></td>
+              <td><%= image_tag user.get_profile_image(100,200) %></td>
               <td><%= link_to user.nickname, admin_user_path(user.id) %></td>
               <td><%= user.introduction %></td>
               <td><%= user.height %></td>
@@ -32,6 +32,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @users %>
     </div>
   </div>
 </div>
