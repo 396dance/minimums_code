@@ -21,13 +21,14 @@
       <h2>本文</h2>
       <p><%= @outfit.body %></p>
 
-      <h2>タグ</h2>
-      <% @outfit.tags.each do |tag| %>
-        <span><%= tag.name %></span>
-      <% end %>
+      <p>タグ：
+        <% @outfit.tags.each do |tag| %>
+          <span><%= tag.name %></span>
+        <% end %>
+      </p>
 
-      <h2>投稿者</h2>
-      <p><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></p>
+      <p>投稿者：<%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></p>
+      <p>投稿日：<%= @outfit.created_at.strftime('%Y/%m/%d') %></p>
 
       <% if @outfit.user == current_user %>
         <%= link_to "投稿を削除する", outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
