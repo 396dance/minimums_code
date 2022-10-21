@@ -1,7 +1,7 @@
 class Public::HomesController < ApplicationController
 
   def top
-    @outfits = Outfit.all
+    @all_ranks = Outfit.find(Favorite.group(:oufit_id).order('count(outfit_id) desc').limit(5).pluck(:outfit_id))
   end
 
 end
