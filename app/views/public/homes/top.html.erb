@@ -7,7 +7,8 @@
 <h1>会員側のトップページ</h1>
 
 <h4>ランキング表示</h4>
-<% @all_ranks.each do |outfit| %>
+<% @all_ranks.each.with_index(1) do |outfit, i| %>
+  <p>第<%= i %>位</p>
   <%= outfit.title %>
   <%= outfit.body %>
   <%= image_tag outfit.image, size: "200x200" %>
