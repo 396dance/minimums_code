@@ -4,6 +4,12 @@ class Public::SearchesController < ApplicationController
   def search
     @outfit = Outfit.new
     @range = params[:range]
+    @users = []
+    @outfits = []
+
+    if params[:word].blank?
+      return
+    end
 
     if @range == "ニックネーム"
       @users = User.looks(params[:search], params[:word])

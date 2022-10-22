@@ -1,9 +1,11 @@
-<% if user_signed_in? %>
   <div class="search_form">
     <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %>
       <%= f.select :range, options_for_select([['ニックネーム'], ['服装']]) %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
+      <% if :word.nil? %>
+        <%= 空です %>
+      <% else %>
+        <%= f.submit "検索", class: "btn btn-primary" %>
+      <% end %>
     <% end %>
   </div>
-<% end %>

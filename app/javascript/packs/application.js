@@ -20,3 +20,18 @@ import '@fortawesome/fontawesome-free/js/all'
 Rails.start()
 // Turbolinks.start()
 ActiveStorage.start()
+
+// $(function(){
+//   // ①submit()に関数をバインド
+//   $('form').submit(function() {
+//     let word = $("input[name='word']").val()
+//     if(word == ""){
+
+//       alert("空です");
+//       return false;
+
+//     }
+
+//   });
+
+// });

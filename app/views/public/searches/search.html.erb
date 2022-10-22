@@ -23,7 +23,7 @@
               <th>身長</th>
             </tr>
             <tr>
-              <% if @users.size == 0 %>
+              <% if @users.blank? %>
                 <td></td>
                 <td>検索結果がありませんでした。</td>
               <% end %>
@@ -48,7 +48,7 @@
               <th>投稿者</th>
             </tr>
 
-            <% if @outfits.size == 0 %>
+            <% if @outfits.blank? %>
               <td></td>
               <td>検索結果がありませんでした。</td>
             <% end %>
