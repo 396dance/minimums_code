@@ -9,6 +9,7 @@
 <h4>ランキング表示</h4>
 <% @all_ranks.each do |outfit| %>
   <%= outfit.title %>
+  <%= outfit.body %>
   <%= image_tag outfit.image, size: "200x200" %>
 <% end %>
 
