@@ -1,16 +1,48 @@
+<div class="container-fluid">
+  <!--ログインしましたの表示を出す-->
+  <div class="notice">
+    <%= notice %>
+  </div>
 
-<!--ログインしましたの表示を出す-->
-<div class="notice">
-  <%= notice %>
+  <div class="row m-5">
+    <div class="col-md-3">
+      <table class="table table-bordered table-hover shadow-lg">
+        <thead>
+          <tr>
+            <th class="active table-active">タグ検索</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tag.each do |tag| %>
+          <tr>
+            <td>
+              <%= link_to tag.name, outfits_path, class:"text-dark"%>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class='col-md-8 offset-md-1'>
+      <div class="row mb-5 position-relative">
+        <%= image_tag'top.jpg', size:"800x450" ,style:"position: relativ" %>
+        <p class="text-white position-absolute center-text">
+           <strong>”低身長&小柄な人向けのコーディネート投稿サイト</strong>
+        </p><br>
+      </div>
+
+      <h4 class="mx-5 mb-4"><strong>＜いいね数ランキング＞</strong></h4>
+      <div class="row mx-auto">
+        <% @all_ranks.each.with_index(1) do |outfit, i| %>
+          <div>
+            <p><strong>第<%= i %>位</strong></p>
+            <%= image_tag outfit.image, size: "100x100" %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
 </div>
-
-<h1>会員側のトップページ</h1>
-
-<h4>ランキング表示</h4>
-<% @all_ranks.each.with_index(1) do |outfit, i| %>
-  <p>第<%= i %>位</p>
-  <%= outfit.title %>
-  <%= outfit.body %>
-  <%= image_tag outfit.image, size: "200x200" %>
-<% end %>
 

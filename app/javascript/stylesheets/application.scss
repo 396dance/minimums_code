@@ -12,7 +12,10 @@
 body {
   padding-top: 66px;
   padding-bottom: 40px;
+  background-color: #f5f5f5;
 }
+
+
 
 /********************
  * ログイン・新規登録画面
@@ -27,8 +30,15 @@ body {
   color: red;
 }
 
-body {
-  background-color: #f5f5f5;
+.center-text {
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  white-space: nowrap;
 }
 
 /********************
