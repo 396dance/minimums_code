@@ -4,25 +4,8 @@
     <%= notice %>
   </div>
 
-  <div class="row m-5">
-    <div class="col-md-3">
-      <table class="table table-bordered table-hover shadow-lg">
-        <thead>
-          <tr>
-            <th class="active table-active">タグ検索</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @tag.each do |tag| %>
-          <tr>
-            <td>
-              <%= link_to tag.name, outfits_path, class:"text-dark"%>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+  <div class="row m-5  mx-auto">
+
 
     <div class='col-md-8 offset-md-1'>
       <div class="row mb-5 position-relative">

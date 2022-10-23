@@ -1,32 +1,30 @@
+
 <!--キーワード検索フォーム-->
 <%= render "public/searches/search" %>
 
+<div class="card-columns">
+  <% outfits.each do |outfit| %>
+    <div class="card">
+      <%= image_tag outfit.image, style:'width:100%' %>
+      <div class="card-body">
+        <h5 class="card-title"><%=link_to outfit.title, outfit_path(outfit.id) %></h5>
+        <p class="card-text"><%= outfit.body %></p>
+        <p class="card-text">
+          <% outfit.tags.each do |tag| %>
+            <span><%= tag.name %></span>
+          <% end %>
+        </p>
+        <p class="card-text"><%= link_to outfit.user.nickname, user_path(outfit.user.id) %></p>
+      </div>
+      <div class="card-footer">
+        コメント：<%= outfit.outfit_comments.count %>
+        <div id="favorite_buttons_<%= outfit.id %>">
+          <%= render "public/favorites/favorite", outfit: outfit %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<% outfits.each do |outfit| %>
-  <p>
-    <%= image_tag outfit.image, size: "200x200" %>
-  </p>
-  <p>
-    タイトル：<%=link_to outfit.title, outfit_path(outfit.id) %>
-  </p>
-  <p>
-    本文：<%= outfit.body %>
-  </p>
-  <p>タグ：</p>
-    <% outfit.tags.each do |tag| %>
-      <span><%= tag.name %></span>
-    <% end %>
-  <p>
-    投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
-  </p>
-  <p>
-    コメント件数：<%= @outfit.outfit_comments.count %>
-  </p>
-  <!--いいねボタン-->
-  <div id="favorite_buttons_<%= outfit.id %>">
-    <%= render "public/favorites/favorite", outfit: outfit %>
-  </div>
-
-<% end %>
 <%= paginate outfits %>
 
