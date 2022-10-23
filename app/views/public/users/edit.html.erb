@@ -1,43 +1,54 @@
-<div class='container m-5 px-sm-0'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <% if @user.errors.any? %>
-        <%= @user.errors.count %>件のエラーが発生しました
-        <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-9 mx-auto">
+      <h4><strong>プロフィール編集</strong></h4>
 
-      <h2>プロフィール編集</h2>
       <%= form_with model: @user, url: user_path(@user.id), method: :patch  do |f| %>
+      <div class="shadow-lg px-5 py-5 mt-4">
+       <table class="table　table-borderless table-sm ml-5">
+         <!--エラー表示-->
+          <% if @user.errors.any? %>
+            <%= @user.errors.count %>件のエラーが発生しました
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        <tr class="row w-100">
+          <th class="col-md-12 col-lg-6">ニックネーム</th>
+          <th class="col-md-12 col-lg-6 field">
+            <%= f.text_field :nickname, autofocus: true, id:"inputName", placeholder:"名前", class:"w-100" %>
+          </th>
+        </tr>
+        <tr class="row w-100">
+          <th class="col-md-12 col-lg-6">自己紹介</th>
+          <th class="col-md-12 col-lg-6 field">
+            <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"自己紹介", class:"w-100" %>
+          </th>
+        </tr>
+        <tr class="row w-100">
+          <th class="col-md-12 col-lg-6">アイコン</th>
+          <th class="col-md-12 col-lg-6 field">
+            <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+          </th>
+        </tr>
+        <tr class="row w-100">
+          <th class="col-md-12 col-lg-6">身長</th>
+          <th class="col-md-12 col-lg-6 field">
+            <%= f.select(:height, (130..170)) %>
+          </th>
+        </tr>
 
-        <div class="form-group">
-          <label for="inputName">ニックネーム</label>
-          <%= f.text_field :nickname, autofocus: true, id:"inputName", placeholder:"名前"%>
-        </div>
-        <div class="form-group">
-          <label for="inputIntroduction">自己紹介</label>
-          <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"自己紹介"%>
-        </div>
-        <div class="form-group">
-          <label for="inputImage">アイコン</label>
-          <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
-        </div>
-        <div class="form-group">
-          <label for="inputHeight">身長</label>
-          <%= f.select(:height, (130..170)) %>
-        </div>
-        <div class="form-group">
-          <%= link_to "退会", "/users/#{@user.id}/quit" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "変更を保存" %>
-        </div>
-
-      <% end %>
-
+      </table>
     </div>
+      <div class="actions mt-3 text-center">
+        <%= f.submit '編集内容を保存', class: "btn btn-success mr-5" %>
+        <%= link_to "/users/#{@user.id}/quit", class: "ml-5" do %>
+         <button type="button" class="btn btn-danger">退会する</button>
+        <% end %>
+      </div>
+     <% end %>
+   </div>
   </div>
 </div>
