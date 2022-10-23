@@ -9,7 +9,7 @@
 
     <div class='col-md-8 offset-md-1'>
       <div class="row mb-5 position-relative">
-        <%= image_tag'top.jpg', size:"800x450" ,style:"position: relativ" %>
+        <%= image_tag'top.jpg', size:"800x500" ,style:"position: relativ" %>
         <p class="text-white position-absolute center-text">
            <strong>”低身長&小柄な人向けのコーディネート投稿サイト</strong>
         </p><br>
@@ -18,7 +18,7 @@
       <h4 class="mx-5 mb-4"><strong>＜いいね数ランキング＞</strong></h4>
       <div class="row mx-auto">
         <% @all_ranks.each.with_index(1) do |outfit, i| %>
-          <div>
+          <div class='m-2'>
             <p><strong>第<%= i %>位</strong></p>
             <%= image_tag outfit.image, size: "100x100" %>
           </div>
