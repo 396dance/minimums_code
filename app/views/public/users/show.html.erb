@@ -1,21 +1,19 @@
-<div class='container px-5 px-sm-0'>
+<div class='container m-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-3'>
 
-      <h1>会員の詳細ページ</h1>
-      <h2>プロフィール部分テンプレート</h2>
+    <!--サイドバー-->
+    <div class='col-md-3'>
+      <!--プロフィール-->
       <%= render 'public/users/info', user: @user %>
 
       <!--投稿フォーム-->
-      <h2>投稿フォーム部分テンプレート</h2>
         <%= render 'public/outfits/form', outfit: @outfit %>
     </div>
 
-      <!-- ユーザーの投稿一覧 -->
+    <!-- ユーザーの投稿一覧 -->
     <div  class='col-md-8 offset-md-1'>
-        <%= render 'public/outfits/index', outfits: @outfits %>
+      <%= render 'public/outfits/index', outfits: @outfits %>
     </div>
-
 
   </div>
 </div>

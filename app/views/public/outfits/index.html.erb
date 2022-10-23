@@ -1,10 +1,9 @@
 
-<div class='container px-5 px-sm-0'>
+<div class='container m-5 px-sm-0'>
   <div class='row'>
 
     <div class='col-md-3'>
-      <!--マイプロフィール-->
-      <h2>プロフィール部分テンプレート</h2>
+      <!--プロフィール-->
       <%= render 'public/users/info', user: current_user %>
       <!--投稿フォーム-->
       <%= render 'public/outfits/form', outfit: @outfit %>
@@ -12,7 +11,6 @@
 
     <div class='col-md-8 offset-md-1'>
       <!--タグ検索フォーム-->
-      <p>タグ検索フォーム部分テンプレートしていない</p>
       <%= form_tag outfits_path, method: :get, class: 'boards_searchForm' do %>
         <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),{prompt: 'タグで絞り込み検索',onchange: 'submit(this.form);'}%>
       <% end %>

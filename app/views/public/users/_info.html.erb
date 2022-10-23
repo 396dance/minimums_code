@@ -2,8 +2,8 @@
 <% if user.is_deleted %>
   <p>こちらのユーザーは退会しています</p>
 <% else %>
+    <%= image_tag user.get_profile_image(100,100), class:'mb-3' %>
   <table class='table'>
-    <tr><%= image_tag user.get_profile_image(100,100) %></tr>
     <tr>
       <th>ニックネーム</th>
       <th><%= user.nickname %></th>
@@ -35,8 +35,6 @@
         <!--フォローボタン-->
         <% if user.id != current_user.id %>
           <p><%= render 'public/relationships/follow_button', user: user %></p>
-        <% else %>
-          <p>current_userなのでフォローボタンを表示しない</p>
         <% end %>
       </th>
     </tr>
@@ -45,10 +43,6 @@
         <!--プロフィール編集ボタン-->
         <% if user.id == current_user.id && user.nickname != "guestuser" %>
           <%=link_to 'プロフィール編集', edit_user_path(user.id), class: "btn btn-outline-secondary" %>
-        <% else %>
-          <div>
-            このユーザーではない又はゲストユーザーなのでプロフィール編集ボタン非表示
-          </div>
         <% end %>
       </th>
     </tr>

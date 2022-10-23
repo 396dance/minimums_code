@@ -1,5 +1,3 @@
-<h2>投稿一覧ページ部分テンプレート化</h2>
-
 <!--キーワード検索フォーム-->
 <%= render "public/searches/search" %>
 
@@ -20,6 +18,9 @@
     <% end %>
   <p>
     投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
+  </p>
+  <p>
+    コメント件数：<%= @outfit.outfit_comments.count %>
   </p>
   <!--いいねボタン-->
   <div id="favorite_buttons_<%= outfit.id %>">
