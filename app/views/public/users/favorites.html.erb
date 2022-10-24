@@ -3,7 +3,6 @@
 
     <div class='col-md-3'>
       <!--マイプロフィール-->
-      <h2>プロフィール部分テンプレート</h2>
       <%= render 'public/users/info', user: current_user %>
       <!--投稿フォーム-->
       <%= render 'public/outfits/form', outfit: @outfit %>
@@ -11,7 +10,7 @@
 
     <div class='col-md-8 offset-md-1'>
 
-      <h1>いいね一覧</h1>
+      <h4>いいね一覧</h4>
 
       <% @favorites_outfits.each do |outfit|%>
         <p>
@@ -30,7 +29,7 @@
         <p>
           投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
         </p>
-            <% end %>
+      <% end %>
 
     </div>
   </div>

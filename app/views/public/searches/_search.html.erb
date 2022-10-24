@@ -1,7 +1,7 @@
   <div class="search_form">
     <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %>
-      <%= f.select :range, options_for_select([['ニックネーム'], ['服装']]) %>
+      <%= f.select :range, options_for_select([['ニックネーム'], ['投稿タイトル']]) %>
       <% if :word.nil? %>
         <%= 空です %>
       <% else %>

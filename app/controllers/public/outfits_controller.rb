@@ -13,11 +13,11 @@ class Public::OutfitsController < ApplicationController
   end
 
   def create
-    @outfits = Outfit.all
+    @outfits = Outfit.page(params[:page])
     @outfit = Outfit.new(outfit_params)
     @outfit.user_id = current_user.id
     if @outfit.save
-      redirect_to outfit_path(outfit.id)
+      redirect_to outfit_path(@outfit.id)
     else
       render :index
     end

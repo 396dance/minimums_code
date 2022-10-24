@@ -20,7 +20,9 @@
         <% @all_ranks.each.with_index(1) do |outfit, i| %>
           <div class='m-2'>
             <p><strong>第<%= i %>位</strong></p>
-            <%= image_tag outfit.image, size: "100x100" %>
+            <%= link_to outfit_path(outfit.id) do %>
+              <%= image_tag outfit.image, size: "100x100" %>
+            <% end %>
           </div>
         <% end %>
       </div>

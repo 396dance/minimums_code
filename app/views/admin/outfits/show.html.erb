@@ -1,11 +1,11 @@
-<h1>管理者側の服装詳細ページ</h1>
+<h4>管理者側の服装詳細ページ</h4>
 
 <p><%= image_tag @outfit.image %></p>
 
-<h4>タイトル</h4>
+<p>タイトル</p>
 <p><%= @outfit.title %></p>
 
-<h4>本文</h4>
+<p>本文</p>
 <p><%= @outfit.body %></p>
 
 <p>タグ：
@@ -19,7 +19,7 @@
 
 
 <div>
-  <%= link_to "投稿を削除する", admin_outfit_path(@outfit), method: :delete, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
+  <%= link_to "投稿を削除する", admin_outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
 </div>
 
 <!--コメント一覧の部分テンプレート-->
