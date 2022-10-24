@@ -66,8 +66,10 @@ gem 'devise-i18n'
 gem "enum_help"
 gem "jquery-rails"
 gem 'pry-rails'
+
 gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
+
 gem 'kaminari'
 
