@@ -19,6 +19,7 @@
 
     <div class="check_box">
       <span>タグ</span>
+      
       <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
         <div>
           <%= tag.label do %>
