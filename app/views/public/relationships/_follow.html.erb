@@ -1,15 +1,15 @@
 <% if users.exists? %>
-  <% users.each do |user| %>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>ニックネーム</th>
-          <th>自己紹介</th>
-          <th>身長</th>
-          <th>フォロー状況</th>
-        </tr>
-      </thead>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>ニックネーム</th>
+        <th>自己紹介</th>
+        <th>身長</th>
+        <th>フォロー状況</th>
+      </tr>
+    </thead>
+    <% users.each do |user| %>
       <tbody>
         <tr>
           <td><%= image_tag user.get_profile_image(100,100) %></td>
@@ -26,8 +26,8 @@
           </td>
         </tr>
       </tbody>
-    </table>
-  <% end %>
+    <% end %>
+  </table>
 <% else %>
   <p>ユーザーはいません</p>
 <% end %>
