@@ -11,26 +11,28 @@
     <div class='col-md-8 offset-md-1'>
 
       <h4>いいね一覧</h4>
-
-      <% @favorites_outfits.each do |outfit|%>
-        <p>
-          <%= image_tag outfit.image, size: "200x200" %>
-        </p>
-        <p>
-          タイトル：<%=link_to outfit.title, outfit_path(outfit.id) %>
-        </p>
-        <p>
-          本文：<%= outfit.body %>
-        </p>
-        <p>タグ：</p>
-          <% outfit.tags.each do |tag| %>
-            <span><%= tag.name %></span>
-          <% end %>
-        <p>
-          投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
-        </p>
-      <% end %>
-
+      <div class="card-columns">
+        <% @favorites_outfits.each do |outfit| %>
+          <div class="card">
+            <%= image_tag outfit.image, style:'width:100%' %>
+            <div class="card-body">
+              <h5 class="card-text">
+                タイトル：<%=link_to outfit.title, outfit_path(outfit.id) %>
+              </h5>
+              <p class="card-text">
+                本文：<%= outfit.body %>
+              </p>
+              <p class="card-text">タグ：</p>
+                <% outfit.tags.each do |tag| %>
+                  <span><%= tag.name %></span>
+                <% end %>
+              <p class="card-text">
+                投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

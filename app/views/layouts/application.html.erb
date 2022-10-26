@@ -16,13 +16,6 @@
           <!--ロゴ-->
           <%= link_to (image_tag "logo.png",size: "80x40"), root_path, class: 'navbar-brand' %>
 
-          <% if user_signed_in? %>
-            <!--会員のログイン時に表示-->
-            <div class ="d-flex align-items-center justify-content-center text-white">
-              ようこそ、<%= current_user.nickname %>さん！
-            </div>
-          <% end %>
-
           <!--ハンバーガーメニュー-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,16 +28,16 @@
               <% if user_signed_in? %>
 
                 <li class="nav-item">
-                  <%= link_to "TOPページ", root_path, class: "btn btn-dark" %>
+                  <%= link_to "TOP", root_path, class: "btn btn-dark" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "Aboutページ", about_path, class: "btn btn-dark" %>
+                  <%= link_to "About", about_path, class: "btn btn-dark" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "マイページ", user_path(current_user), class: "btn btn-dark" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "投稿一覧ページ", outfits_path, class: "btn btn-dark" %>
+                  <%= link_to "投稿一覧", outfits_path, class: "btn btn-dark" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-dark" %>
@@ -53,13 +46,13 @@
               <!--管理者サインイン-->
               <% elsif admin_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to "服装一覧ページ", admin_outfits_path, class: "btn btn-dark" %>
+                  <%= link_to "服装一覧", admin_outfits_path, class: "btn btn-dark" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "会員一覧ページ", admin_users_path, class: "btn btn-dark" %>
+                  <%= link_to "会員一覧", admin_users_path, class: "btn btn-dark" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "コメント一覧ページ", admin_comments_path, class: "btn btn-dark" %>
+                  <%= link_to "コメント一覧", admin_comments_path, class: "btn btn-dark" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-dark" %>
@@ -70,13 +63,13 @@
               <!--ログアウト-->
               <% else%>
                 <li class="nav-item">
-                    <%= link_to "TOPページ", root_path, class: "btn btn-dark" %>
+                    <%= link_to "TOP", root_path, class: "btn btn-dark" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "Aboutページ", about_path, class: "btn btn-dark" %>
+                  <%= link_to "About", about_path, class: "btn btn-dark" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-dark", method: :post %>
+                  <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn btn-dark", method: :post %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "新規登録", new_user_registration_path, class: "btn btn-dark" %>
