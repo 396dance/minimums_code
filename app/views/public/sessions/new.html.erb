@@ -13,23 +13,23 @@
           </div>
 
           <%= f.label :email, class:"sr-only" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"メールアドレス" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control mb-3", placeholder:"メールアドレス" %>
         </div>
 
         <div class="field">
           <%= f.label :password, class:"sr-only" %>
-          <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:"パスワード" %>
+          <%= f.password_field :password, autocomplete: "current-password", class:"form-control mb-3", placeholder:"パスワード" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.label :remember_me, class:"mb-3" %>
           </div>
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Log in" %>
+          <%= f.submit "Log in", class:"mb-3"%>
         </div>
       <% end %>
 

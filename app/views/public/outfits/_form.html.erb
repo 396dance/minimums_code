@@ -9,25 +9,19 @@
   <% end %>
 
   <%= form_with model: outfit, url:'/outfits', method: :post do |f| %>
-    <h4>画像</h4>
-      <%= f.file_field :image, accept: "image/*" %>
-    <h4>タイトル</h4>
-      <%= f.text_field :title, class:"form-control" %>
-    <h4>本文</h4>
-      <%= f.text_area :body, class:"form-control" %>
+    <span><strong>コーディネート写真</strong></span>
+      <%= f.file_field :image, accept: "image/*", class:"mb-2" %>
+    <span class="mb-1"><strong>タイトル</strong></span>
+      <%= f.text_field :title, class:"form-control mb-2" %>
+    <span class="mb-1"><strong>本文</strong></span>
+      <%= f.text_area :body, class:"form-control mb-2" %>
 
 
-    <div class="check_box">
-      <span>タグ</span>
-      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-        <div>
-          <%= tag.label do %>
-            <%= tag.check_box %>
-            <%= tag.text %>
-          <% end %>
-         </div>
-       <% end %>
-     </div>
+    <div>
+      <span><strong>タグ</strong></span>
+      <!--タグ検索フォーム-->
+      <%= f.select :tag_ids, Tag.pluck(:name, :id), {prompt: 'タグ選択'}, {multiple: true, class: 'form-control'} %>
+    </div>
 
     <%= f.submit '投稿' %>
   <% end %>

@@ -4,30 +4,26 @@
     <%= notice %>
   </div>
 
-  <div class="row m-5  mx-auto">
-
-
-    <div class='col-md-8 offset-md-1'>
-      <div class="row mb-5 position-relative">
-        <%= image_tag'top.jpg', size:"800x500" ,style:"position: relativ" %>
-        <p class="text-white position-absolute center-text">
-           <strong>”低身長&小柄な人向けのコーディネート投稿サイト</strong>
-        </p><br>
-      </div>
-
-      <h4 class="mx-5 mb-4"><strong>＜いいね数ランキング＞</strong></h4>
-      <div class="row mx-auto">
-        <% @all_ranks.each.with_index(1) do |outfit, i| %>
-          <div class='m-2'>
-            <p><strong>第<%= i %>位</strong></p>
-            <%= link_to outfit_path(outfit.id) do %>
-              <%= image_tag outfit.image, size: "100x100" %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-
+  <div class="row mx-auto">
+    <div class="row mb-5 position-relative">
+      <%= image_tag'top.jpg', class:"top-image", style:"position: relativ" %>
+      <p class="text-white position-absolute center-text">
+         <strong class="mv-text">”身長160㎝以下の人向けのメンズコーデサイト</strong>
+      </p><br>
     </div>
   </div>
+
+    <h4><strong>＜いいね数ランキング＞</strong></h4>
+    <div class="row justify-content-center mb-5">
+      <% @all_ranks.each.with_index(1) do |outfit, i| %>
+        <div class="col-sm-4 col-md-2">
+          <p><strong>第<%= i %>位</strong></p>
+          <%= link_to outfit_path(outfit.id) do %>
+            <%= image_tag outfit.image, class: 'img-fluid' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
 </div>
 
