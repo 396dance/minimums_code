@@ -7,7 +7,7 @@
       <%= render 'public/users/info', user: @user %>
 
       <!--投稿フォーム-->
-      <%= render 'public/outfits/form', outfit: @outfit %>
+      <%= render 'public/outfits/form', outfit: @outfit, user: current_user %>
     </div>
 
     <!-- ユーザーの投稿一覧 -->

@@ -4,7 +4,15 @@
 <% else %>
   <%= image_tag user.get_profile_image(100,100), class:'mb-3', style: "border-radius: 50px;" %>
 
-  <p><strong><%= user.nickname %></strong>（身長<%= user.height %>㎝）</p>
+  <p>
+    <strong><%= user.nickname %></strong>
+    （身長
+    <% if user.height == nil %>
+      ○○㎝）
+    <% else %>
+      <%= user.height %>㎝）
+    <% end %>
+  </p>
   <%= user.introduction %>
 
 

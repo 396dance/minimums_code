@@ -5,7 +5,7 @@
       <%= render 'public/users/info', user: @user %>
 
       <!--投稿フォーム-->
-      <%= render 'public/outfits/form', outfit: @outfits %>
+      <%= render 'public/outfits/form', outfit: @outfits, user: current_user %>
      </div>
 
     <div class='col-md-8 offset-md-1'>
