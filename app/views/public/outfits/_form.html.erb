@@ -8,6 +8,7 @@
     </ul>
   <% end %>
 
+  <p><strong>投稿フォーム</strong></p>
   <%= form_with model: outfit, url:'/outfits', method: :post do |f| %>
     <span><strong>コーディネート写真</strong></span>
       <%= f.file_field :image, accept: "image/*", class:"mb-2" %>
