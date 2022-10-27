@@ -1,6 +1,11 @@
 <!-- ユーザーの詳細 -->
+<p><strong>プロフィール</strong></p>
 <% if user.is_deleted %>
-  <p>こちらのユーザーは退会しています</p>
+  <p>※こちらのユーザーは退会しています</p>
+
+<% elsif user.nickname == "guestuser" %>
+  <p>※ゲストユーザーはプロフィールがありません。</p>
+
 <% else %>
   <%= image_tag user.get_profile_image(100,100), class:'mb-3', style: "border-radius: 50px;" %>
 
