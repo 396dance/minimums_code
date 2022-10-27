@@ -5,7 +5,7 @@
       <%= render 'public/users/info', user: @user %>
 
       <!--投稿フォーム-->
-      <%= render 'public/outfits/form', outfit: @outfits %>
+      <%= render 'public/outfits/form', outfit: @outfits, user: current_user %>
      </div>
 
     <div class='col-md-8 offset-md-1'>
@@ -62,12 +62,17 @@
         </tr>
 
         <!--コメント投稿フォームの部分テンプレート-->
-        <tr>
+        <% if current_user.nickname != "guestuser" %>
+          <tr>
+            <th class="table-active">コメント投稿フォーム</th>
+            <td id="comment_form">
+              <%= render "public/outfit_comments/form", outfit: @outfit, outfit_comment: @outfit_comment %>
+            </td>
+          </tr>
+        <% else %>
           <th class="table-active">コメント投稿フォーム</th>
-          <td id="comment_form">
-            <%= render "public/outfit_comments/form", outfit: @outfit, outfit_comment: @outfit_comment %>
-          </td>
-        </tr>
+          <td>※ゲストユーザーのため、コメントできません。コメントするにはログインしてください。</td>
+        <% end %>
       </table>
 
     </div>

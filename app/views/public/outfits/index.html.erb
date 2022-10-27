@@ -6,17 +6,19 @@
       <!--プロフィール-->
       <%= render 'public/users/info', user: current_user %>
       <!--投稿フォーム-->
-      <%= render 'public/outfits/form', outfit: @outfit %>
+      <%= render 'public/outfits/form', outfit: @outfit, user: current_user %>
     </div>
 
     <div class='col-md-8 offset-md-1'>
+      <h4 class="text-center"><strong>コーディネート一覧</strong></h4>
       <!--タグ検索フォーム-->
       <%= form_tag outfits_path, method: :get, class: 'boards_searchForm' do %>
         <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),{prompt: 'タグで絞り込み検索',onchange: 'submit(this.form);'}%>
       <% end %>
-
-      <!--投稿一覧-->
-      <%= render 'public/outfits/index', outfits: @outfits %>
+      <div class="mt-3">
+        <!--投稿一覧-->
+        <%= render 'public/outfits/index', outfits: @outfits %>
+      </div>
     </div>
 
   </div>
