@@ -2,49 +2,32 @@
 <% if user.is_deleted %>
   <p>こちらのユーザーは退会しています</p>
 <% else %>
-    <%= image_tag user.get_profile_image(100,100), class:'mb-3' %>
-  <table class='table'>
-    <tr>
-      <th>ニックネーム</th>
-      <th><%= user.nickname %></th>
-    </tr>
-    <tr>
-      <th>自己紹介</th>
-      <th><%= user.introduction %></th>
-    </tr>
-    <tr>
-      <th>身長(㎝)</th>
-      <th><%= user.height %></th>
-    </tr>
-    <tr>
-      <th>フォロー数</th>
-      <th><%= link_to user.followings.count, user_followings_path(user) %></th>
-    </tr>
-    <tr>
-      <th>フォロワー数</th>
-      <th><%= link_to user.followers.count, user_followers_path(user) %></th>
-    </tr>
-    <tr>
-      <th>お気に入り</th>
-      <th><%= link_to "一覧", favorites_user_path(user) %></th>
-    </tr>
+  <%= image_tag user.get_profile_image(100,100), class:'mb-3', style: "border-radius: 50px;" %>
+
+  <p><strong><%= user.nickname %></strong>（身長<%= user.height %>㎝）</p>
+  <%= user.introduction %>
 
 
-    <tr>
-      <th>
-        <!--フォローボタン-->
-        <% if user.id != current_user.id %>
-          <p><%= render 'public/relationships/follow_button', user: user %></p>
-        <% end %>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        <!--プロフィール編集ボタン-->
-        <% if user.id == current_user.id && user.nickname != "guestuser" %>
-          <%=link_to 'プロフィール編集', edit_user_path(user.id), class: "btn btn-outline-secondary" %>
-        <% end %>
-      </th>
-    </tr>
-  </table>
+
+  <p><strong>
+    <%= link_to user_followings_path(user), class:"link" do %>
+      <%= user.followings.count %>フォロー中
+    <% end %>
+    <%= link_to user_followers_path(user), class:"link" do %>
+      <%= user.followers.count %>フォロワー
+    <% end %>
+    <%= link_to favorites_user_path(user), class:"link" do %>
+    いいねした投稿
+    <% end %>
+  </strong></p>
+
+  <!--フォローボタン-->
+  <% if user.id != current_user.id %>
+    <p><%= render 'public/relationships/follow_button', user: user %></p>
+  <% end %>
+  <!--プロフィール編集ボタン-->
+  <% if user.id == current_user.id && user.nickname != "guestuser" %>
+    <%=link_to 'プロフィール編集', edit_user_path(user.id), class: "btn btn-outline-secondary mb-5" %>
+  <% end %>
+
 <% end %>
