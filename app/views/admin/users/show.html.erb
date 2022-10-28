@@ -1,45 +1,36 @@
-<div class='container px-5 px-sm-0'>
+<div class='container m-5 px-5 px-sm-0 mx-auto'>
   <div class='row'>
-    <div class='col-md-3'>
+    <div class='col-md-3 border rounded p-3 bg-white'>
 
-      <table class='table'>
-        <tr><%= image_tag @user.get_profile_image(100,100) %></tr>
-        <tr>
-          <th>ニックネーム</th>
-          <th><%= @user.nickname %></th>
-        </tr>
-        <tr>
-          <th>自己紹介</th>
-          <th><%= @user.introduction %></th>
-        </tr>
-        <tr>
-          <th>身長(㎝)</th>
-          <th><%= @user.height %></th>
-        </tr>
-        <tr>
-          <th>会員ステータス</th>
-          <th>
-            <% if @user.is_deleted == true %>
-              <p class="text-secondary font-weight-bold">退会済</p>
-            <% else %>
-              <p class='text-success font-weight-bold'>有効</p>
-            <% end %>
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <%=link_to 'プロフィール編集', edit_admin_user_path(@user.id), class: "btn btn-outline-secondary" %>
-          </th>
-        </tr>
-      </table>
+      <p><strong>プロフィール</strong></p>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <p>
+        <strong><%= @user.nickname %></strong>
+        （身長
+        <% if @user.height == nil %>
+          ○○㎝）
+        <% else %>
+          <%= @user.height %>㎝）
+        <% end %>
+      </p>
+      <%= @user.introduction %>
+      <div>
+        <strong>会員ステータス</strong>
+        <% if @user.is_deleted == true %>
+          <span class="text-secondary font-weight-bold">退会済</span>
+        <% else %>
+          <span class='text-success font-weight-bold'>有効</span>
+        <% end %>
+        <%= link_to 'プロフィール編集', edit_admin_user_path(@user.id), class: "btn btn-outline-secondary mt-3" %>
+      </div>
     </div>
 
     <!-- ユーザーの投稿一覧 -->
     <div  class='col-md-8 offset-md-1'>
-      <table>
+      <table class="table shadow-lg mt-4">
         <thead>
           <tr>
-            <th>投稿画像</th>
+            <th>コーディネート</th>
             <th>タイトル</th>
             <th>本文</th>
           </tr>
@@ -59,5 +50,6 @@
         </tbody>
       </table>
     </div>
+
   </div>
 </div>

@@ -1,23 +1,15 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
+    <div class='col-md-8 mt-5 mx-auto'>
 
-    <div class='col-md-3'>
-      <!--マイプロフィール-->
-      <%= render 'public/users/info', user: current_user %>
-      <!--投稿フォーム-->
-      <%= render 'public/outfits/form', outfit: @outfit %>
-    </div>
-
-    <div class='col-md-8 offset-md-1'>
-
-      <h4>いいね一覧</h4>
-      <div class="card-columns">
+      <h4><strong>いいね一覧</strong></h4>
+      <div class="card-columns  mt-3">
         <% @favorites_outfits.each do |outfit| %>
           <div class="card">
-            <%= image_tag outfit.image, style:'width:100%' %>
+            <%= image_tag outfit.image, style:'width:100%;aspect-ratio:1/1;object-fit:cover;' %>
             <div class="card-body">
               <h5 class="card-text">
-                タイトル：<%=link_to outfit.title, outfit_path(outfit.id) %>
+                タイトル：<%=link_to outfit.title.truncate(8), outfit_path(outfit.id) %>
               </h5>
               <p class="card-text">
                 本文：<%= outfit.body %>
@@ -27,7 +19,7 @@
                   <span><%= tag.name %></span>
                 <% end %>
               <p class="card-text">
-                投稿者：<%= link_to outfit.user.nickname, user_path(outfit.user.id) %>
+                投稿者：<%= link_to outfit.user.nickname.truncate(8), user_path(outfit.user.id) %>
               </p>
             </div>
           </div>

@@ -1,12 +1,12 @@
 <% if users.exists? %>
-  <table>
+  <table class="table shadow-lg">
     <thead>
       <tr>
         <th></th>
-        <th>ニックネーム</th>
+        <th style="width: 120px">ニックネーム</th>
         <th>自己紹介</th>
-        <th>身長</th>
-        <th>フォロー状況</th>
+        <th style="width: 80px">身長</th>
+        <th style="width: 120px">フォロー状況</th>
       </tr>
     </thead>
     <% users.each do |user| %>

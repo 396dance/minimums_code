@@ -1,6 +1,6 @@
-<div class='container m-5 px-sm-0'>
+<div class='container m-5 px-sm-0 mx-auto'>
   <div class='row'>
-    <div class='col-md-3'>
+    <div class='col-md-4'>
       <!--プロフィール-->
       <%= render 'public/users/info', user: @user %>
 
@@ -8,12 +8,12 @@
       <%= render 'public/outfits/form', outfit: @outfits, user: current_user %>
      </div>
 
-    <div class='col-md-8 offset-md-1'>
-      <table class="table shadow-lg mt-4">
+    <div class='col-md-8'>
+      <table class="table shadow-lg">
         <tr>
-          <th class="table-active">コーディネート</th>
+          <th class="table-active" style="width: 200px">コーディネート</th>
           <td>
-            <%= image_tag @outfit.image, class:"outfit-image", style: "border-radius: 20px;" %>
+            <%= image_tag @outfit.image, class: "outfit-image" %>
             <div id="favorite_buttons_<%= @outfit.id %>">
               <%= render "public/favorites/favorite", outfit: @outfit %>
             </div>
