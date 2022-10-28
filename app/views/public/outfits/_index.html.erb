@@ -2,7 +2,7 @@
 <!--キーワード検索フォーム-->
 <%= render "public/searches/search" %>
 
-<div class="card-columns">
+<div class="card-columns mt-3">
   <% outfits.each do |outfit| %>
     <div class="card">
       <%= image_tag outfit.image, style:'width:100%;aspect-ratio:1/1;object-fit:cover;' %>
