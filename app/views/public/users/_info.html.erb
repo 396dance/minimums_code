@@ -35,7 +35,7 @@
   </strong></p>
 
   <!--フォローボタン-->
-  <% if user.id != current_user.id %>
+  <% if user.id != current_user.id && current_user.nickname != "guestuser" %>
     <p><%= render 'public/relationships/follow_button', user: user %></p>
   <% end %>
   <!--プロフィール編集ボタン-->
