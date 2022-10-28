@@ -1,46 +1,48 @@
 <!-- ユーザーの詳細 -->
-<p><strong>プロフィール</strong></p>
-<% if user.is_deleted %>
-  <p>※こちらのユーザーは退会しています</p>
+<div class="border rounded p-3 bg-white">
+  <p><strong>プロフィール</strong></p>
+  <% if user.is_deleted %>
+    <p>※こちらのユーザーは退会しています</p>
 
-<% elsif user.nickname == "guestuser" %>
-  <p>※ゲストユーザーはプロフィールがありません。</p>
+  <% elsif user.nickname == "guestuser" %>
+    <p>※ゲストユーザーはプロフィールがありません。</p>
 
-<% else %>
-  <%= image_tag user.get_profile_image(100,100), class:'mb-3', style: "border-radius: 50px;" %>
+  <% else %>
+    <%= image_tag user.get_profile_image(100,100), class: "prf-image mb-3" %>
 
-  <p>
-    <strong><%= user.nickname %></strong>
-    （身長
-    <% if user.height == nil %>
-      ○○㎝）
-    <% else %>
-      <%= user.height %>㎝）
+    <p>
+      <strong><%= user.nickname %></strong>
+      （身長
+      <% if user.height == nil %>
+        ○○㎝）
+      <% else %>
+        <%= user.height %>㎝）
+      <% end %>
+    </p>
+    <%= user.introduction %>
+
+
+
+    <p><strong>
+      <%= link_to user_followings_path(user), class:"link" do %>
+        <%= user.followings.count %>フォロー中
+      <% end %>
+      <%= link_to user_followers_path(user), class:"link" do %>
+        <%= user.followers.count %>フォロワー
+      <% end %>
+      <%= link_to favorites_user_path(user), class:"link" do %>
+      いいねした投稿
+      <% end %>
+    </strong></p>
+
+    <!--フォローボタン-->
+    <% if user.id != current_user.id && current_user.nickname != "guestuser" %>
+      <p><%= render 'public/relationships/follow_button', user: user %></p>
     <% end %>
-  </p>
-  <%= user.introduction %>
-
-
-
-  <p><strong>
-    <%= link_to user_followings_path(user), class:"link" do %>
-      <%= user.followings.count %>フォロー中
+    <!--プロフィール編集ボタン-->
+    <% if user.id == current_user.id && user.nickname != "guestuser" %>
+      <%= link_to 'プロフィール編集', edit_user_path(user.id), class: "btn btn-outline-secondary mb-5" %>
     <% end %>
-    <%= link_to user_followers_path(user), class:"link" do %>
-      <%= user.followers.count %>フォロワー
-    <% end %>
-    <%= link_to favorites_user_path(user), class:"link" do %>
-    いいねした投稿
-    <% end %>
-  </strong></p>
 
-  <!--フォローボタン-->
-  <% if user.id != current_user.id && current_user.nickname != "guestuser" %>
-    <p><%= render 'public/relationships/follow_button', user: user %></p>
   <% end %>
-  <!--プロフィール編集ボタン-->
-  <% if user.id == current_user.id && user.nickname != "guestuser" %>
-    <%= link_to 'プロフィール編集', edit_user_path(user.id), class: "btn btn-outline-secondary mb-5" %>
-  <% end %>
-
-<% end %>
+</div>

@@ -2,7 +2,7 @@
   <div class='row'>
 
     <!--サイドバー-->
-    <div class='col-md-3'>
+    <div class='col-md-4'>
       <!--プロフィール-->
       <%= render 'public/users/info', user: @user %>
 
@@ -11,7 +11,7 @@
     </div>
 
     <!-- ユーザーの投稿一覧 -->
-    <div  class='col-md-8 offset-md-1'>
+    <div  class="col-md-8 border rounded p-3 bg-white">
       <%= render 'public/outfits/index', outfits: @outfits %>
     </div>
 

@@ -2,14 +2,14 @@
 <div class='container m-5 px-sm-0'>
   <div class='row'>
 
-    <div class='col-md-3'>
+    <div class="col-md-4">
       <!--プロフィール-->
       <%= render 'public/users/info', user: current_user %>
       <!--投稿フォーム-->
       <%= render 'public/outfits/form', outfit: @outfit, user: current_user %>
     </div>
 
-    <div class='col-md-8 offset-md-1'>
+    <div class="col-md-8 border rounded p-3 bg-white">
       <h4 class="text-center"><strong>コーディネート一覧</strong></h4>
       <!--タグ検索フォーム-->
       <%= form_tag outfits_path, method: :get, class: 'boards_searchForm' do %>

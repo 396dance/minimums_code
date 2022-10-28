@@ -7,16 +7,11 @@ class Outfit < ApplicationRecord
   validates :body, presence: true
   validates :body, length: { maximum: 500 }
 
-  # 服装の投稿はユーザーに属する
   belongs_to :user
-  # 服装の投稿はたくさんコメントされる
   has_many :outfit_comments, dependent: :destroy
-  # 服装の投稿はたくさんいいねされる
   has_many :favorites, dependent: :destroy
-  # 服装はたくさんタグを持てる
   has_many :outfit_tags, dependent: :destroy
-  # タグをたくさん持てる、タグはoutfit_tagから探す
-  has_many :tags, through: :outfit_tags
+  has_many :tags, through: :outfit_tags, dependent: :destroy
 
 
 
