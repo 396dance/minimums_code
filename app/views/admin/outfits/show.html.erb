@@ -1,32 +1,50 @@
-<h4>管理者側の服装詳細ページ</h4>
+<div class='container m-5 px-sm-0'>
+  <div class='row'>
 
-<p><%= image_tag @outfit.image %></p>
+    <table class="table shadow-lg mt-4">
+      <tr>
+        <th class="table-active" style="width: 200px">コーディネート</th>
+        <td>
+          <%= image_tag @outfit.image, class:"outfit-image", style: "border-radius: 20px;" %>
+        </td>
+      </tr>
+      <tr>
+        <th class="table-active">タイトル</th>
+        <td><%= @outfit.title %></td>
+      </tr>
+      <tr>
+        <th class="table-active">本文</th>
+        <td>
+          <p><%= @outfit.body %></p>
+          <%= link_to "投稿を削除する", admin_outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
+        </td>
+      </tr>
+      <tr>
+        <th class="table-active">タグ</th>
+        <td>
+          <% @outfit.tags.each do |tag| %>
+            <span><%= tag.name %></span>
+          <% end %>
+        </td>
+       </tr>
+      <tr>
+        <th class="table-active">投稿者</th>
+        <td><%= link_to @outfit.user.nickname, admin_user_path(@outfit.user.id) %></td>
+      </tr>
 
-<p>タイトル</p>
-<p><%= @outfit.title %></p>
+      <tr>
+        <th class="table-active">投稿日</th>
+        <td><%= @outfit.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
 
-<p>本文</p>
-<p><%= @outfit.body %></p>
-
-<p>タグ：
-  <% @outfit.tags.each do |tag| %>
-    <span><%= tag.name %></span>
-  <% end %>
-</p>
-
-<p>投稿者：<%= link_to @outfit.user.nickname, admin_user_path(@outfit.user.id) %></p>
-<p>投稿日：<%= @outfit.created_at.strftime('%Y/%m/%d') %></p>
-
-
-<div>
-  <%= link_to "投稿を削除する", admin_outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
+      <!--コメント一覧の部分テンプレート-->
+      <tr>
+        <th class="table-active">コメント一覧</th>
+        <td id="comments-area">
+          <%= render "admin/outfit_comments/index", outfit: @outfit, outfit_comments: @outfit_comments %>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
 
-<!--コメント一覧の部分テンプレート-->
-<div id="comments-area">
-  <%= render "admin/outfit_comments/index", outfit: @outfit, outfit_comments: @outfit_comments %>
-</div>
-
-<div>
-  <p>コメント件数：<%= @outfit.outfit_comments.count %></p>
-</div>
