@@ -7,11 +7,6 @@ body {
   font-family: Meiryo;
 }
 
-.top-image {
-  max-width: 100%;
-  height: auto;
-}
-
 .mv-text {
   text-shadow:
         1px 1px 0 #000,
@@ -32,6 +27,23 @@ body {
   color: black;
   background-color: #e1e1e1;
 }
+
+/********************
+ * トップ画面
+ ********************/
+
+.top-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.ranking-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
 
 /********************
  * ログイン・新規登録画面
