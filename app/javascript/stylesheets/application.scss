@@ -31,15 +31,14 @@ body {
 /********************
  * トップ画面
  ********************/
-
 .top-image {
   max-width: 100%;
   height: auto;
 }
 
 .ranking-image {
-  width: 150px;
-  height: 150px;
+  max-width: 200px;
+  max-height: 300px;
   object-fit: cover;
   border-radius: 20px;
 }
