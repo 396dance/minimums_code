@@ -36,9 +36,13 @@ body {
   height: auto;
 }
 
-.ranking-image {
-  width: 200px;
-  height: 300px;
+.ranking-title {
+  font-size: 20px
+}
+
+.ranking-img {
+  width: 160px;
+  height: 200px;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -108,4 +112,20 @@ body {
 ul.pagination {
   border: 1px solid #dee2e6;
   // background-color: #fff;
+}
+
+/********************
+ * トップ画面(携帯サイズ)
+ ********************/
+@media screen and (max-width:425px) {
+  .ranking-img {
+    width: 50px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .ranking-font {
+    font-size: 12px;
+  }
 }

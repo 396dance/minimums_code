@@ -13,17 +13,18 @@
     </div>
   </div>
 
-    <h4 class="row justify-content-center"><strong style= "font-size: 20px">＜いいね数ランキング＞</strong></h4>
+    <h4 class="row justify-content-center ranking-title"><strong>＜いいね数ランキング＞</strong></h4>
     <div class="row justify-content-center mb-3">
       <% @all_ranks.each.with_index(1) do |outfit, i| %>
-        <div class="col-sm-4 col-md-2">
-          <p><strong>第<%= i %>位</strong></p>
+        <div class="col-2 col-md-2">
+          <p><strong class="ranking-font">第<%= i %>位</strong></p>
           <%= link_to outfit_path(outfit.id) do %>
-            <%= image_tag outfit.image, class: "ranking-image" %>
+            <%= image_tag outfit.image, class: "ranking-img" %>
           <% end %>
         </div>
       <% end %>
     </div>
 
 </div>
+
 
