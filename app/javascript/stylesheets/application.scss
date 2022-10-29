@@ -36,9 +36,13 @@ body {
   height: auto;
 }
 
+.ranking-title {
+  font-size: 20px
+}
+
 .ranking-img {
-  width: 89px;
-  height: 119px;
+  width: 160px;
+  height: 200px;
   object-fit: cover;
   border-radius: 20px;
 }
