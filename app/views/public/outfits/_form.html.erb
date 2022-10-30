@@ -11,22 +11,22 @@
 
 
   <!--投稿フォーム-->
-    <p><strong>投稿フォーム</strong></p>
-    <% if current_user.nickname != "guestuser" %>
-      <%= form_with model: outfit, url:'/outfits', method: :post do |f| %>
-        <span><strong>コーディネート写真</strong></span>
-          <%= f.file_field :image, accept: "image/*", class:"mb-2" %>
-        <span class="mb-1"><strong>タイトル</strong></span>
-          <%= f.text_field :title, class:"form-control mb-2" %>
-        <span class="mb-1"><strong>本文</strong></span>
-          <%= f.text_area :body, class:"form-control mb-2" %>
-        <div>
-          <span><strong>タグ</strong></span>
-          <%= f.select :tag_ids, Tag.pluck(:name, :id), {prompt: 'タグ選択'}, {multiple: true, class: 'form-control'} %>
-        </div>
-        <%= f.submit '投稿' %>
-      <% end %>
-    <% else %>
-      <p>※ゲストユーザーは投稿できません。ログインしてください。</p>
+  <p><strong>投稿フォーム</strong></p>
+  <% if current_user.nickname != "guestuser" %>
+    <%= form_with model: outfit, url:'/outfits', method: :post do |f| %>
+      <span><strong>コーディネート写真</strong></span>
+        <%= f.file_field :image, accept: "image/*", class:"mb-2" %>
+      <span class="mb-1"><strong>タイトル</strong></span>
+        <%= f.text_field :title, class:"form-control mb-2" %>
+      <span class="mb-1"><strong>本文</strong></span>
+        <%= f.text_area :body, class:"form-control mb-2" %>
+      <div>
+        <span><strong>タグ</strong></span>
+        <%= f.select :tag_ids, Tag.pluck(:name, :id), {prompt: 'タグ選択'}, {multiple: true, class: 'form-control'} %>
+      </div>
+      <%= f.submit '投稿' %>
     <% end %>
+  <% else %>
+    <p>※ゲストユーザーは投稿できません。ログインしてください。</p>
+  <% end %>
 </div>
