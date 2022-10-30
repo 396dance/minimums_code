@@ -11,4 +11,5 @@ class Public::FavoritesController < ApplicationController
     @favorite.destroy
     @outfit = Outfit.find(params[:outfit_id])
   end
+
 end

@@ -7,5 +7,4 @@ class Admin::OutfitCommentsController < ApplicationController
     redirect_to admin_outfit_path(@outfit)
   end
 
-
 end

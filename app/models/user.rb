@@ -10,18 +10,15 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 200 }
 
 
-
   # ログイン時に退会済みのユーザーが同じアカウントでログイン出来ないよう制約を設ける
   # is_deletedがfalseならtrueを返すようにする
   def active_for_authentication?
     super && (is_deleted == false)
   end
 
-  # ユーザーは服装をたくさん投稿できる
+
   has_many :outfits, dependent: :destroy
-  # ユーザーはたくさんコメントできる
   has_many :outfit_comments, dependent: :destroy
-  # ユーザーはたくさんいいねできる
   has_many :favorites, dependent: :destroy
 
   # ユーザーはたくさんフォローできる
