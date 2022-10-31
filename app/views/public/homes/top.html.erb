@@ -1,9 +1,11 @@
-<div class="container-fluid">
-  
-  <!--通知表示-->
-  <div class="notice">
+<!--通知表示-->
+<% if notice %>
+  <div class="alert alert-success mb-0">
     <%= notice %>
   </div>
+<% end %>
+
+<div class="container-fluid">
 
   <div class="row mx-auto">
     <div class="row mb-3 position-relative">

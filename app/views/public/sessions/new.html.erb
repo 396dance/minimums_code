@@ -7,11 +7,14 @@
         <div>
           <h2>ログイン</h2>
 
-          <!--ログインしてくださいのエラーを出す-->
-          <div class="alert">
-            <%= alert %>
-          </div>
+          <!--エラーメッセージ-->
+          <% if alert %>
+            <div class="alert alert-danger">
+              <%= alert %>
+            </div>
+          <% end %>
 
+          <!--ログインフォーム-->
           <%= f.label :email, class:"sr-only" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control mb-3", placeholder:"メールアドレス" %>
         </div>
@@ -29,7 +32,7 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Log in", class:"mb-3"%>
+          <%= f.submit "ログイン", class:"mb-3"%>
         </div>
       <% end %>
 
