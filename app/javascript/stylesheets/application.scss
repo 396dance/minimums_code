@@ -117,4 +117,15 @@ ul.pagination {
   .ranking-font {
     font-size: 12px;
   }
+
+  .table-active {
+    writing-mode: vertical-rl;
+    width: 50px;
+  }
+  .outfit-image {
+    width: auto;
+    max-height: 150px;
+    border-radius: 20px;
+  }
+
 }
