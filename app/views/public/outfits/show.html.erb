@@ -53,7 +53,7 @@
           <td><%= @outfit.created_at.strftime('%Y/%m/%d') %></td>
         </tr>
 
-        <!--コメント一覧の部分テンプレート-->
+        <!--コメント一覧-->
         <tr>
           <th class='table-active'>コメント一覧</th>
           <td id='comments-area'>
@@ -61,7 +61,7 @@
           </td>
         </tr>
 
-        <!--コメント投稿フォームの部分テンプレート-->
+        <!--コメント投稿フォーム-->
         <% if current_user.nickname != 'guestuser' %>
           <tr>
             <th class='table-active'>コメント投稿フォーム</th>
