@@ -4,6 +4,7 @@
 
       <p><strong>プロフィール</strong></p>
       <%= image_tag @user.get_profile_image(100,100) %>
+
       <p>
         <strong><%= @user.nickname %></strong>
         （身長
@@ -13,7 +14,9 @@
           <%= @user.height %>㎝）
         <% end %>
       </p>
+
       <%= @user.introduction %>
+
       <div>
         <strong>会員ステータス</strong>
         <% if @user.is_deleted == true %>
@@ -28,6 +31,7 @@
     <!-- ユーザーの投稿一覧 -->
     <div  class='col-md-8 offset-md-1'>
       <table class="table shadow-lg mt-4">
+
         <thead>
           <tr>
             <th>コーディネート</th>
@@ -35,6 +39,7 @@
             <th>本文</th>
           </tr>
         </thead>
+
         <tbody>
           <% @outfits.each do |outfit| %>
           <tr>
@@ -48,8 +53,8 @@
           </tr>
           <% end %>
         </tbody>
+
       </table>
     </div>
-
   </div>
 </div>

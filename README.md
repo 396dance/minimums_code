@@ -30,21 +30,32 @@
 
 
 ## 設計書
-- 会員側UI-Frows作成中
-- 管理者側UI-Frows作成中
-- ER図作成中
-- テーブル定義書作成中
-- アプリケーション詳細設計作成中
+### UI-Frows(会員側)
+![UI-Frows](https://user-images.githubusercontent.com/108283848/198839343-a79018e5-5b70-4d0a-9b78-0f318989f293.png)
 
+### UI-Frows(管理者側)
+![UI-Frows](https://user-images.githubusercontent.com/108283848/198863497-86f24a46-b47f-42b5-a167-8311fe0fd726.png)
+
+### ER図
+![ER図](https://user-images.githubusercontent.com/108283848/198863518-e795c06f-e079-4fd0-8ca9-c15100ce7770.png)
+
+### テーブル定義書
+![テーブル定義書](https://user-images.githubusercontent.com/108283848/198863534-384f661a-78f6-478c-b4ee-62caf64f2cea.png)
+
+### アプリケーション詳細設計
+![アプリケーション詳細設計](https://user-images.githubusercontent.com/108283848/198863534-384f661a-78f6-478c-b4ee-62caf64f2cea.png)
+
+### テスト仕様書
+![テスト仕様書](https://user-images.githubusercontent.com/108283848/198863534-384f661a-78f6-478c-b4ee-62caf64f2cea.png)
 
 ## 主な機能
 ### サイト利用者
 - ログイン機能
 - 投稿機能
-- 投稿いいね機能
-- 投稿コメント機能
-- 投稿キーワード検索機能
-- 投稿タグ検索機能
+- いいね機能
+- コメント機能
+- キーワード検索機能
+- タグ検索機能
 - ゲストログイン機能
 - フォロー機能
 - いいね一覧表示機能
@@ -62,5 +73,5 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+- ［ロゴ作成サイト］https://www.777logos.com/
+- ［トップページ画像、aboutページ画像］https://www.photo-ac.com/

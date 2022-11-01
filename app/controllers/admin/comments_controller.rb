@@ -1,4 +1,5 @@
 class Admin::CommentsController < ApplicationController
+
   def index
     @outfit_comments = OutfitComment.page(params[:page])
   end
@@ -8,6 +9,5 @@ class Admin::CommentsController < ApplicationController
     @outfit_comment.destroy
     redirect_to admin_comments_path
   end
-
 
 end

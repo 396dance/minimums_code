@@ -1,6 +1,6 @@
 <div class='container m-5 px-sm-0 mx-auto'>
   <div class='row'>
-    <div class='col-md-4'>
+    <div class='col-sm-12 col-md-4'>
       <!--プロフィール-->
       <%= render 'public/users/info', user: @user %>
 
@@ -8,35 +8,35 @@
       <%= render 'public/outfits/form', outfit: @outfits, user: current_user %>
      </div>
 
-    <div class='col-md-8'>
-      <table class="table shadow-lg">
+    <div class='col-sm-12 col-md-8'>
+      <table class='table bg-white'>
         <tr>
-          <th class="table-active" style="width: 200px">コーディネート</th>
+          <th class='table-active'>コーディネート</th>
           <td>
-            <%= image_tag @outfit.image, class: "outfit-image" %>
+            <%= image_tag @outfit.image, class: 'outfit-image' %>
             <div id="favorite_buttons_<%= @outfit.id %>">
-              <%= render "public/favorites/favorite", outfit: @outfit %>
+              <%= render 'public/favorites/favorite', outfit: @outfit %>
             </div>
           </td>
         </tr>
 
         <tr>
-          <th class="table-active">タイトル</th>
+          <th class='table-active'>タイトル</th>
           <td><%= @outfit.title %></td>
         </tr>
 
         <tr>
-          <th class="table-active">本文</th>
+          <th class='table-active'>本文</th>
           <td>
             <p><%= @outfit.body %></p>
             <% if @outfit.user == current_user %>
-              <%= link_to "投稿を削除する", outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
+              <%= link_to "投稿を削除する", outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-sm btn-danger p-0 p-1', style: 'font-size: 8px;' %>
             <% end %>
           </td>
         </tr>
 
         <tr>
-          <th class="table-active">タグ</th>
+          <th class='table-active'>タグ</th>
           <td>
             <% @outfit.tags.each do |tag| %>
               <span><%= tag.name %></span>
@@ -44,33 +44,33 @@
           </td>
          </tr>
         <tr>
-          <th class="table-active">投稿者</th>
+          <th class='table-active'>投稿者</th>
           <td><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></td>
         </tr>
 
         <tr>
-          <th class="table-active">投稿日</th>
+          <th class='table-active'>投稿日</th>
           <td><%= @outfit.created_at.strftime('%Y/%m/%d') %></td>
         </tr>
 
-        <!--コメント一覧の部分テンプレート-->
+        <!--コメント一覧-->
         <tr>
-          <th class="table-active">コメント一覧</th>
-          <td id="comments-area">
-            <%= render "public/outfit_comments/index", outfit: @outfit, outfit_comments: @outfit_comments %>
+          <th class='table-active'>コメント一覧</th>
+          <td id='comments-area'>
+            <%= render 'public/outfit_comments/index', outfit: @outfit, outfit_comments: @outfit_comments %>
           </td>
         </tr>
 
-        <!--コメント投稿フォームの部分テンプレート-->
-        <% if current_user.nickname != "guestuser" %>
+        <!--コメント投稿フォーム-->
+        <% if current_user.nickname != 'guestuser' %>
           <tr>
-            <th class="table-active">コメント投稿フォーム</th>
-            <td id="comment_form">
-              <%= render "public/outfit_comments/form", outfit: @outfit, outfit_comment: @outfit_comment %>
+            <th class='table-active'>コメント投稿フォーム</th>
+            <td id='comment_form'>
+              <%= render 'public/outfit_comments/form', outfit: @outfit, outfit_comment: @outfit_comment %>
             </td>
           </tr>
         <% else %>
-          <th class="table-active">コメント投稿フォーム</th>
+          <th class='table-active'>コメント投稿フォーム</th>
           <td>※ゲストユーザーのため、コメントできません。コメントするにはログインしてください。</td>
         <% end %>
       </table>

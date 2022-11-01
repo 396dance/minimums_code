@@ -1,5 +1,5 @@
 class Outfit < ApplicationRecord
-  # 服装テーブルで画像を扱えるようにする
+
   has_one_attached :image
 
   validates :image, presence: true
@@ -12,8 +12,6 @@ class Outfit < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :outfit_tags, dependent: :destroy
   has_many :tags, through: :outfit_tags, dependent: :destroy
-
-
 
   def self.looks(search, word)
     @outfit = Outfit.where("title LIKE?","%#{word}%")

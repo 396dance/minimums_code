@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
 
-  # ↓なぜあるのか不明
-  # namespace :public do
-  #   get 'relationships/followings'
-  #   get 'relationships/followers'
-  # end
   namespace :admin do
     get 'comments/index'
   end
+  
 # 会員側
   # ゲストログイン
   devise_scope :user do
@@ -38,6 +34,7 @@ Rails.application.routes.draw do
     patch '/users/:id/close' => 'users#close'
     get 'search' => 'searches#search'
   end
+
 
 # 管理者側
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {

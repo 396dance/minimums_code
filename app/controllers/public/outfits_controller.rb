@@ -42,5 +42,4 @@ class Public::OutfitsController < ApplicationController
     params.require(:outfit).permit(:image, :title, :body, tag_ids: [])
   end
 
-
 end

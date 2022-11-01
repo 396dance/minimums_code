@@ -1,8 +1,11 @@
-<div class="container-fluid">
-  <!--ログインしましたの表示を出す-->
-  <div class="notice">
+<!--通知表示-->
+<% if notice %>
+  <div class="alert alert-success mb-0">
     <%= notice %>
   </div>
+<% end %>
+
+<div class="container-fluid">
 
   <div class="row mx-auto">
     <div class="row mb-3 position-relative">
@@ -13,17 +16,17 @@
     </div>
   </div>
 
-    <h4 class="row justify-content-center ranking-title"><strong>＜いいね数ランキング＞</strong></h4>
-    <div class="row justify-content-center mb-3">
-      <% @all_ranks.each.with_index(1) do |outfit, i| %>
-        <div class="col-2 col-md-2">
-          <p><strong class="ranking-font">第<%= i %>位</strong></p>
-          <%= link_to outfit_path(outfit.id) do %>
-            <%= image_tag outfit.image, class: "ranking-img" %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+  <h4 class="row justify-content-center ranking-title"><strong>＜いいね数ランキング＞</strong></h4>
+  <div class="row justify-content-center mb-3">
+    <% @all_ranks.each.with_index(1) do |outfit, i| %>
+      <div class="col-2 col-md-2">
+        <p><strong class="ranking-font">第<%= i %>位</strong></p>
+        <%= link_to outfit_path(outfit.id) do %>
+          <%= image_tag outfit.image, class: "ranking-img" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
 </div>
 

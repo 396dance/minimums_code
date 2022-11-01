@@ -6,6 +6,7 @@
       <div class="card-columns  mt-3">
         <% @favorites_outfits.each do |outfit| %>
           <div class="card">
+
             <%= image_tag outfit.image, style:'width:100%;aspect-ratio:1/1;object-fit:cover;' %>
             <div class="card-body">
               <h5 class="card-text">
@@ -22,6 +23,7 @@
                 投稿者：<%= link_to outfit.user.nickname.truncate(8), user_path(outfit.user.id) %>
               </p>
             </div>
+
           </div>
         <% end %>
       </div>
