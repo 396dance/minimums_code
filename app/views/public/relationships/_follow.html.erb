@@ -2,9 +2,9 @@
   <table class="table border rounded bg-white">
     <thead>
       <tr>
-        <th>アイコン</th>
+        <th class= 'table-icon'>アイコン</th>
         <th class= 'table-nickname'>ニックネーム</th>
-        <th>自己紹介</th>
+        <th class= 'table-introduction d-none d-sm-block'>自己紹介</th>
         <th class= 'table-height'>身長</th>
         <th class= 'table-follow'>フォロー状況</th>
       </tr>
@@ -12,9 +12,9 @@
     <% users.each do |user| %>
       <tbody>
         <tr>
-          <td><%= image_tag user.get_profile_image(100,100), class: 'prf-image' %></td>
+          <td><%= image_tag user.get_profile_image(100,100), class: 'follow-prf-image' %></td>
           <td><%= link_to user.nickname, user_path(user.id) %></td>
-          <td><%= user.introduction %></td>
+          <td class= 'd-none d-sm-block'><%= user.introduction %></td>
           <td><%= user.height %></td>
           <td>
           <!--フォローボタン-->
