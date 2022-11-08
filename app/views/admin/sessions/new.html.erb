@@ -4,10 +4,12 @@
 
       <h2>管理者ログイン</h2>
 
-      <!--アラート表示-->
-      <div class="alert alert-danger">
-        <%= alert %>
-      </div>
+      <!--エラーメッセージ-->
+      <% if alert %>
+        <div class="alert alert-danger">
+          <%= alert %>
+        </div>
+      <% end %>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
