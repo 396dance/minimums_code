@@ -1,11 +1,13 @@
+<!--通知表示-->
+<% if notice %>
+  <div class="alert alert-success mb-0">
+    <%= notice %>
+  </div>
+<% end %>
+
 <div class='container px-5 px-sm-0 mx-auto'>
   <div class='row'>
     <div class='col'>
-
-      <!--通知表示-->
-      <div class="notice">
-        <%= notice %>
-      </div>
 
       <!--コーディネート一覧-->
       <h4 class="mt-5"><strong>コーディネート投稿一覧</strong></h4>
