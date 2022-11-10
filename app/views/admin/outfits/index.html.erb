@@ -5,13 +5,13 @@
   </div>
 <% end %>
 
-<div class='container px-5 px-sm-0 mx-auto'>
+<div class='container px-md-5 px-sm-0 mx-auto'>
   <div class='row'>
     <div class='col'>
 
       <!--コーディネート一覧-->
       <h4 class="mt-5"><strong>コーディネート投稿一覧</strong></h4>
-      <table class="table shadow-lg mt-3">
+      <table class="table bg-white mt-3">
         <thead>
           <tr>
             <th>投稿画像</th>
@@ -25,7 +25,7 @@
             <tr>
               <td><%= image_tag outfit.image, size: "100x100" %></td>
               <td><%= link_to outfit.title, admin_outfit_path(outfit.id) %></td>
-              <td><%= outfit.body %></td>
+              <td><%= outfit.body.truncate(8) %></td>
               <td><%= link_to outfit.user.nickname, admin_user_path(outfit.user.id) %></td>
             </tr>
           <% end %>
