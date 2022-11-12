@@ -1,6 +1,6 @@
-<div class='container m-5 px-5 px-sm-0 mx-auto'>
+<div class='container m-5 px-sm-0 mx-auto'>
   <div class='row'>
-    <div class='col-md-4 border rounded p-3 bg-white'>
+    <div class='col-md-4 border rounded p-3 mb-3 bg-white'>
 
       <p><strong>プロフィール</strong></p>
       <%= image_tag @user.get_profile_image(100,100) %>
@@ -14,23 +14,21 @@
           <%= @user.height %>㎝）
         <% end %>
       </p>
-
       <%= @user.introduction %>
-
       <div>
         <strong>会員ステータス</strong>
         <% if @user.is_deleted == true %>
-          <span class="text-secondary font-weight-bold">退会済</span>
+          <p class="text-secondary font-weight-bold">退会済</p>
         <% else %>
-          <span class='text-success font-weight-bold'>有効</span>
+          <p class='text-success font-weight-bold'>有効</p>
         <% end %>
         <%= link_to 'プロフィール編集', edit_admin_user_path(@user.id), class: "btn btn-outline-secondary mt-3" %>
       </div>
     </div>
 
     <!-- ユーザーの投稿一覧 -->
-    <div  class='col-md-8'>
-      <table class="table border bg-white mt-3">
+    <div class="col-md-8">
+      <table class="table border bg-white">
 
         <thead>
           <tr>
@@ -53,7 +51,6 @@
           </tr>
           <% end %>
         </tbody>
-
       </table>
     </div>
   </div>
