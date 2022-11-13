@@ -3,7 +3,6 @@ class Outfit < ApplicationRecord
   has_one_attached :image
 
   validates :image, presence: true
-  validates :title, presence: true
   validates :body, presence: true
   validates :body, length: { maximum: 500 }
 

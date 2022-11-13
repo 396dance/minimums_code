@@ -3,32 +3,36 @@
     <div class='col-md-8 mt-5 mx-auto'>
 
       <h4><strong>いいね一覧</strong></h4>
-      <div class="card-columns mt-3">
-        <% @favorites_outfits.each do |outfit| %>
-          <div class="card">
-            <%= image_tag outfit.image, style:'width:100%;aspect-ratio:1/1;object-fit:cover;' %>
 
-            <div class="card-body">
-              <h5 class="card-title"><%=link_to outfit.title.truncate(8), outfit_path(outfit.id) %></h5>
-              <p class="card-text" style="margin-bottom: <%= outfit.tags.size > 0 ? '0' : '40px' %>"><%= outfit.body.truncate(8) %></p>
-              <% if outfit.tags.size > 0 %>
-                <p class="card-text">
-                  <span style="font-size: 0.7em; background-color: #e1e1e1; color: #333;border-radius: 3px;padding: 2px 3px;"><%= outfit.tags[0].name.truncate(8) %></span> ...
-                  <span style="font-size: 11px;padding: 3px;"><%= outfit.tags.size %>tags</span>
-                </p>
-              <% end %>
-              <p class="card-text"><%= link_to outfit.user.nickname.truncate(8), user_path(outfit.user.id) %></p>
-            </div>
+      <% if @favorites_outfits.empty? %>
+        <div>いいねした投稿はありません</div>
+      <% else %>
+        <div class="card-columns mt-3">
+          <% @favorites_outfits.each do |outfit| %>
+            <div class="card">
+              <%= image_tag outfit.image, style:'width:100%;aspect-ratio:1/1;object-fit:cover;' %>
 
-            <div class="card-footer">
-              コメント：<%= outfit.outfit_comments.count %>
-              <div id="favorite_buttons_<%= outfit.id %>">
-                <%= render "public/favorites/favorite", outfit: outfit %>
+              <div class="card-body">
+                <h5 class="card-title"><%=link_to outfit.title.truncate(8), outfit_path(outfit.id) %></h5>
+                <p class="card-text" style="margin-bottom: <%= outfit.tags.size > 0 ? '0' : '40px' %>"><%= outfit.body.truncate(8) %></p>
+                <% if outfit.tags.size > 0 %>
+                  <p class="card-text">
+                    <span style="font-size: 0.7em; background-color: #e1e1e1; color: #333;border-radius: 3px;padding: 2px 3px;"><%= outfit.tags[0].name.truncate(8) %></span> ...
+                    <span style="font-size: 11px;padding: 3px;"><%= outfit.tags.size %>tags</span>
+                  </p>
+                <% end %>
+                <p class="card-text"><%= link_to outfit.user.nickname.truncate(8), user_path(outfit.user.id) %></p>
+              </div>
+
+              <div class="card-footer">
+                コメント：<%= outfit.outfit_comments.count %>
+                <div id="favorite_buttons_<%= outfit.id %>">
+                  <%= render "public/favorites/favorite", outfit: outfit %>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
+          <% end %>
+        </div>
+    <% end %>
   </div>
 </div>
