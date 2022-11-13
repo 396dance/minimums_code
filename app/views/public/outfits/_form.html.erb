@@ -15,7 +15,7 @@
   <% if current_user.nickname != "guestuser" %>
     <%= form_with model: outfit, url:'/outfits', method: :post do |f| %>
       <span><strong>コーディネート写真</strong></span>
-        <%= f.text_field :title, class:"form-control mb-2" %>
+        <%= f.file_field :image, accept: "image/*", class:"mb-2" %>
       <span class="mb-1"><strong>本文</strong></span>
         <%= f.text_area :body, class:"form-control mb-2" %>
       <div>
