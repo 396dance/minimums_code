@@ -6,7 +6,9 @@
       <!--プロフィール-->
       <%= render 'public/users/info', user: @user %>
       <!--投稿フォーム-->
-      <%= render 'public/outfits/form', outfit: @outfit, user: current_user %>
+      <div class="d-none d-sm-block">
+        <%= render 'public/outfits/form', outfit: @outfit, user: current_user %>
+      </div>
     </div>
 
     <!-- ユーザーの投稿一覧 -->
