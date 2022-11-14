@@ -132,6 +132,16 @@ ul.pagination {
  *******************/
 @media screen and (max-width:425px) {
 
+  // 新規登録画面
+  .alert-danger h2 {
+    font-size: 14px;
+  }
+
+  .alert-danger li {
+    font-size: 12px;
+  }
+
+
   // トップ画面
   .ranking-img {
     width: 50px;
