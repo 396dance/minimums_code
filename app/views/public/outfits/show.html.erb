@@ -13,7 +13,7 @@
         <tr>
           <th class='table-active'>コーディネート</th>
           <td>
-            <%= image_tag @outfit.image, class: 'outfit-image' %>
+            <%= image_tag @outfit.image, class: 'show-outfit-image' %>
             <div id="favorite_buttons_<%= @outfit.id %>">
               <%= render 'public/favorites/favorite', outfit: @outfit %>
             </div>

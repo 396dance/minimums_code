@@ -42,7 +42,7 @@ body {
 
 .ranking-img {
   width: 160px;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -65,10 +65,9 @@ body {
  * 投稿詳細画面
  ********************/
 
-.outfit-image {
+.index-outfit-image, .show-outfit-image {
   width: auto;
   height: 400px;
-  border-radius: 20px;
 }
 
 
@@ -133,6 +132,16 @@ ul.pagination {
  *******************/
 @media screen and (max-width:425px) {
 
+  // 新規登録画面
+  .alert-danger h2 {
+    font-size: 14px;
+  }
+
+  .alert-danger li {
+    font-size: 12px;
+  }
+
+
   // トップ画面
   .ranking-img {
     width: 50px;
@@ -145,12 +154,19 @@ ul.pagination {
     font-size: 12px;
   }
 
+  // 投稿一覧画面
+  .index-outfit-image {
+    height: 180px;
+  }
+
+
   // 投稿詳細画面
   .table-active {
     writing-mode: vertical-rl;   /*縦読み*/
     width: 40px;
   }
-  .outfit-image {
+
+  .show-outfit-image {
     width: auto;
     max-height: 150px;
     border-radius: 20px;
