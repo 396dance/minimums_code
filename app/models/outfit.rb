@@ -13,7 +13,7 @@ class Outfit < ApplicationRecord
   has_many :tags, through: :outfit_tags, dependent: :destroy
 
   def self.looks(search, word)
-    @outfit = Outfit.where("title LIKE?","%#{word}%")
+    @outfit = Outfit.where("body LIKE?","%#{word}%")
   end
 
   # 「ログイン中のユーザーがその投稿に対していいねをしているか」を判断するメソッドを定義
