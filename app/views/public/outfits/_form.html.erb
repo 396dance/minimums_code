@@ -1,13 +1,15 @@
 <div class="mb-3 border rounded p-3 bg-white">
   <!--エラーメッセージ-->
-  <% if outfit.errors.any? %>
-    <%= outfit.errors.count %>件のエラーが発生しました
-    <ul>
-      <% outfit.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <div style="color: red">
+    <% if outfit.errors.any? %>
+      <%= outfit.errors.count %>件のエラーが発生しました
+      <ul>
+        <% outfit.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 
 
   <!--投稿フォーム-->
