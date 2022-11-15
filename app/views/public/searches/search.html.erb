@@ -1,9 +1,11 @@
-<div class='container px-5 px-sm-0 mt-5'>
+<div class='container m-5 px-sm-0 mx-auto'>
   <div class='row'>
 
     <div class='col-md-4'>
       <!--マイプロフィール-->
-      <%= render 'public/users/info', user: current_user %>
+      <div class="d-none d-sm-block">
+        <%= render 'public/users/info', user: current_user %>
+      </div>
       <!--投稿フォーム-->
       <%= render 'public/outfits/form', outfit: @outfit, user: @user %>
     </div>
@@ -11,7 +13,7 @@
     <div class='col-md-8'>
       <h4 class="mt-3 text-center">キーワード検索結果</h4>
 
-        <!--検索対象モデルがUserの時 -->
+      <!--検索対象モデルがUserの時 -->
       <% if @range == "ニックネーム" %>
         <table class="table table-inverse">
           <tbody>
@@ -39,19 +41,21 @@
         </table>
       <% else %>
         <!--検索対象モデルがUserではない時(= 検索対象モデルがOutfitの時) -->
-        <% if @outfits.blank? %>
-          <p>検索結果がありませんでした。</p>
-        <% end %>
+        <div class='row'>
+          <% if @outfits.blank? %>
+            <p>検索結果がありませんでした。</p>
+          <% end %>
 
-        <% @outfits.each do |outfit| %>
-          <div class="col-4 mt-3 px-md-1 px-0">
-            <div class="card">
-              <%= link_to outfit_path(outfit.id) do %>
-                <%= image_tag outfit.image, class: 'index-outfit-image', style: 'width:100%; aspect-ratio:1/1; object-fit:cover;' %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+          <% @outfits.each do |outfit| %>
+              <div class="col-4 mt-3 px-md-1 px-0">
+                <div class="card">
+                  <%= link_to outfit_path(outfit.id) do %>
+                    <%= image_tag outfit.image, class: 'index-outfit-image', style: 'width:100%; aspect-ratio:1/1; object-fit:cover;' %>
+                  <% end %>
+                </div>
+              </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
