@@ -12,7 +12,7 @@
   <div class="row">
 
     <% outfits.each do |outfit| %>
-      <div class="col-4 mt-3 px-md-1 px-0">
+      <div class="col-4 mt-3 px-md-1 px-0 border">
         <div class="card">
           <%= link_to outfit_path(outfit.id) do %>
             <%= image_tag outfit.image, class: 'index-outfit-image', style: 'width:100%; aspect-ratio:1/1; object-fit:cover;' %>

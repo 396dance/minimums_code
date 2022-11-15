@@ -20,9 +20,9 @@
         <%= f.text_area :body, class:"form-control mb-2" %>
       <div>
         <span><strong>タグ</strong></span>
-        <%= f.select :tag_ids, Tag.pluck(:name, :id), {prompt: 'タグ選択'}, {multiple: true, class: 'form-control'} %>
+        <%= f.select :tag_ids, Tag.pluck(:name, :id), {prompt: 'タグ選択'}, {multiple: true, class: 'form-control mb-2'} %>
       </div>
-      <%= f.submit '投稿' %>
+      <%= f.submit '投稿', class: "btn btn-success" %>
     <% end %>
   <% else %>
     <p>※ゲストユーザーは投稿できません。ログインしてください。</p>
