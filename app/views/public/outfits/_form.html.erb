@@ -2,12 +2,9 @@
   <!--エラーメッセージ-->
   <div style="color: red">
     <% if outfit.errors.any? %>
-      <%= outfit.errors.count %>件のエラーが発生しました
-      <ul>
-        <% outfit.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <% outfit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
     <% end %>
   </div>
 

@@ -5,4 +5,5 @@ class OutfitComment < ApplicationRecord
   # コメントは服装の投稿に属する
   belongs_to :outfit
 
+  validates :comment, presence: true
 end
