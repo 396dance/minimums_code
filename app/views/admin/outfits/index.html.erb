@@ -24,7 +24,7 @@
             <tr>
               <td>
                 <%= link_to admin_outfit_path(outfit.id) do %>
-                  <%= image_tag outfit.image, size: "100x100" %>
+                  <%= image_tag outfit.image, class: 'admin-outfit-image' %>
                 <% end %>
               </td>
               <td><%= outfit.body.truncate(8) %></td>
