@@ -4,14 +4,18 @@
 
   <table class="table bg-white shadow mt-4">
     <thead>
-      <th><%= "投稿名" %></th>
+      <th><%= "投稿画像" %></th>
       <th><%= "コメント者" %></th>
       <th><%= "コメント内容" %></th>
     </thead>
     <tbody>
       <% @outfit_comments. each do |outfit_comment| %>
       <tr>
-        <td><%= link_to outfit_comment.outfit.body, admin_outfit_path(outfit_comment.outfit.id) %></td>
+        <td>
+          <%= link_to admin_outfit_path(outfit_comment.outfit.id) do %>
+            <%= image_tag outfit_comment.outfit.image, class: 'admin-outfit-image' %>
+          <% end %>
+        </td>
         <td><%= outfit_comment.user.nickname %></td>
         <td><%= outfit_comment.comment %></td>
         <td>
