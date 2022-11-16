@@ -9,7 +9,7 @@
       </tr>
 
       <tr>
-        <th class="table-active">本文</th>
+        <th class="table-active">一言コメント</th>
         <td>
           <p><%= @outfit.body %></p>
           <%= link_to "投稿を削除する", admin_outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>

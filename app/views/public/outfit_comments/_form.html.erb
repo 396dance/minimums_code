@@ -1,3 +1,11 @@
+<div style="color: red">
+  <% if outfit_comment.errors.any? %>
+    <% outfit_comment.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+</div>
+
 <!--コメント投稿フォーム-->
 <%= form_with model: [outfit,outfit_comment], url: outfit_outfit_comments_path(outfit), method: :post, local: false do |comment| %>
   <%= comment.text_area :comment, placeholder: "コメントをここに" %>

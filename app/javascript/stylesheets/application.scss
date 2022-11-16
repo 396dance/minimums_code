@@ -78,6 +78,15 @@ body {
   border-radius: 50px;
 }
 
+/********************
+ * 管理者側：投稿詳細画面
+ ********************/
+
+.admin-outfit-image {
+  width: 100px;
+  height: auto;
+}
+
 
 /*****************************
  * フォローフォロワー一覧画面
@@ -124,6 +133,10 @@ body {
 ul.pagination {
   border: 1px solid #dee2e6;
   // background-color: #fff;
+}
+
+nav.pagination {
+  justify-content: center;
 }
 
 

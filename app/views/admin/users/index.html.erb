@@ -4,7 +4,7 @@
 
       <!-- ユーザー一覧 -->
       <h4 class="mt-5"><strong>会員一覧</strong></h4>
-      <table class="table bg-white mt-4">
+      <table class="table bg-white shadow mt-4">
         <thead>
           <tr>
             <th>アイコン</th>
@@ -18,7 +18,7 @@
         <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td><%= image_tag user.get_profile_image(100,100) %></td>
+              <td><%= image_tag user.get_profile_image(100,100), style: "border-radius: 50px;" %></td>
               <td><%= link_to user.nickname, admin_user_path(user.id) %></td>
               <td>
                 <% if user.introduction %>
