@@ -2,7 +2,7 @@
 <div class='container px-md-5 px-sm-0  mx-auto'>
   <h4 class="mt-5"><strong>コメント一覧</strong></h4>
 
-  <table class="table shadow mt-4">
+  <table class="table bg-white shadow mt-4">
     <thead>
       <th><%= "投稿名" %></th>
       <th><%= "コメント者" %></th>
@@ -11,7 +11,7 @@
     <tbody>
       <% @outfit_comments. each do |outfit_comment| %>
       <tr>
-        <td><%= link_to outfit_comment.outfit.body %></td>
+        <td><%= link_to outfit_comment.outfit.body, admin_outfit_path(outfit_comment.outfit.id) %></td>
         <td><%= outfit_comment.user.nickname %></td>
         <td><%= outfit_comment.comment %></td>
         <td>
