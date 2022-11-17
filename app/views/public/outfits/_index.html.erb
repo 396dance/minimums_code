@@ -32,7 +32,7 @@
         </div>
 
         <div class="card-footer d-none d-sm-block">
-          コメント：<%= outfit.outfit_comments.count %>
+          <i class="far fa-comment"></i><%= outfit.outfit_comments.count %>
           <div id="favorite_buttons_<%= outfit.id %>">
             <%= render "public/favorites/favorite", outfit: outfit %>
           </div>
