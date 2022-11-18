@@ -1,5 +1,5 @@
-<!--コメント一覧-->
-<div class='container px-md-5 px-sm-0  mx-auto'>
+<!--管理者：コメント一覧画面-->
+<div class="container px-md-5 px-sm-0  mx-auto">
   <h4 class="mt-5"><strong>コメント一覧</strong></h4>
 
   <table class="table bg-white shadow mt-4">
@@ -13,7 +13,7 @@
       <tr>
         <td>
           <%= link_to admin_outfit_path(outfit_comment.outfit.id) do %>
-            <%= image_tag outfit_comment.outfit.image, class: 'admin-outfit-image' %>
+            <%= image_tag outfit_comment.outfit.image, class: "admin-outfit-image" %>
           <% end %>
         </td>
         <td><%= outfit_comment.user.nickname %></td>
