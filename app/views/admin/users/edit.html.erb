@@ -1,19 +1,19 @@
 <div class="container m-5 mx-auto">
-  <div class="row mt-5">
+  <div class="row">
     <div class="col-9 mx-auto">
-      <h4><strong>プロフィール編集</strong></h4>
+      <h4 class="mt-5"><strong>プロフィール編集</strong></h4>
 
       <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch  do |f| %>
       <div class="col-12 shadow py-5 mt-3 bg-white">
 
         <div class="form-group">
           <label>ニックネーム</label>
-          <%= f.text_field :nickname, autofocus: true, id:"inputName", placeholder:"名前", class:"form-control" %>
+          <%= f.text_field :nickname, autofocus: true, id: "inputName", placeholder: "名前", class: "form-control" %>
         </div>
 
         <div class="form-group">
           <label>自己紹介</label>
-          <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"自己紹介", class:"form-control", rows: "5" %>
+          <%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", placeholder: "自己紹介", class: "form-control", rows: "5" %>
         </div>
 
         <div class="form-group">

@@ -1,6 +1,6 @@
-<div class='container m-5 px-sm-0 mx-auto'>
-  <div class='row'>
-    <div class='col-md-4 border rounded p-3 mb-3 bg-white'>
+<div class="container m-5 px-sm-0 mx-auto">
+  <div class="row">
+    <div class="col-md-4 border rounded p-3 mb-3 bg-white">
 
       <p><strong>プロフィール</strong></p>
       <%= image_tag @user.get_profile_image(100,100) %>
@@ -20,9 +20,9 @@
         <% if @user.is_deleted == true %>
           <p class="text-secondary font-weight-bold">退会済</p>
         <% else %>
-          <p class='text-success font-weight-bold'>有効</p>
+          <p class="text-success font-weight-bold">有効</p>
         <% end %>
-        <%= link_to 'プロフィール編集', edit_admin_user_path(@user.id), class: "btn btn-outline-secondary mt-3" %>
+        <%= link_to "プロフィール編集", edit_admin_user_path(@user.id), class: "btn btn-outline-secondary mt-3" %>
       </div>
     </div>
 
