@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'comments/index'
   end
-  
+
 # 会員側
   # ゲストログイン
   devise_scope :user do
