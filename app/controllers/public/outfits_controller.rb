@@ -5,11 +5,24 @@ class Public::OutfitsController < ApplicationController
   def index
     @outfit = Outfit.new
     @users = User.all
+
+    # タグ検索
     if params[:tag_id].present?
-      @outfits = Tag.find(params[:tag_id]).outfits.page(params[:page])
+      @outfits = Tag.find(params[:tag_id]).outfits
+      @tag_id = params[:tag_id]
     else
-      @outfits =  Outfit.page(params[:page])
+      @outfits =  Outfit.all
     end
+
+    # データの並び替え(新しい順/古い順)
+    if params[:latest]
+      @outfits = @outfits.latest
+    elsif params[:old]
+      @outfits = @outfits.old
+    end
+
+    @outfits = @outfits.page(params[:page])
+
   end
 
   def create

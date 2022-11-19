@@ -12,6 +12,9 @@ class Outfit < ApplicationRecord
   has_many :outfit_tags, dependent: :destroy
   has_many :tags, through: :outfit_tags, dependent: :destroy
 
+  scope :latest, -> {order(updated_at: :desc)}
+  scope :old, -> {order(updated_at: :asc)}
+
   def self.looks(search, word)
     @outfit = Outfit.where("body LIKE?","%#{word}%")
   end
