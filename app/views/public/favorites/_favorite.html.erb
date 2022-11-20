@@ -1,10 +1,12 @@
 <!--いいねボタン-->
 <% if outfit.favorited?(current_user) %>
-  <%= link_to outfit_favorites_path(outfit), method: :delete, remote: true do %>
-    <i class="fas fa-heart", style="color: red"></i><%= outfit.favorites.count %>
+  <%= link_to outfit_favorites_path(outfit), method: :delete, remote: true, class: "text-danger text-decoration-none" do %>
+    <i class="fas fa-heart", style="color: red"></i>
+    <%= outfit.favorites.count %>
   <% end %>
 <% else %>
-  <%= link_to outfit_favorites_path(outfit), method: :post, remote: true do %>
-    <i class="far fa-heart", style="color: black"></i><%= outfit.favorites.count %>
+  <%= link_to outfit_favorites_path(outfit), method: :post, remote: true, class: "text-dark text-decoration-none" do %>
+    <i class="far fa-heart"></i>
+    <%= outfit.favorites.count %>
   <% end %>
 <% end %>
