@@ -14,6 +14,13 @@ import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 
+var userForm = document.querySelector("#userForm");
+
+// userNameのフォームに値を入力（もしくは削除）した時に発火するイベント
+userName.addEventListener('input', ()=>{
+  // イベント発火時の処理
+});
+
 //= require jquery
 //= require jquery_ujs
 
