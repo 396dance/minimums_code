@@ -14,6 +14,10 @@ import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 
+var userForm = document.querySelector("#userForm");
+
+
+
 //= require jquery
 //= require jquery_ujs
 
