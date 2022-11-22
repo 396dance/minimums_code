@@ -34,13 +34,16 @@
         </div>
 
         <div class="card-footer d-none d-sm-block">
+          <div>
+            <%= outfit.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+          </div>
           <%= link_to outfit_path(outfit.id), class: "text-dark text-decoration-none" do %>
             <i class="far fa-comment"></i>
             <%= outfit.outfit_comments.count %>
           <% end %>
-          <div id="favorite_buttons_<%= outfit.id %>">
+          <span id="favorite_buttons_<%= outfit.id %>">
             <%= render "public/favorites/favorite", outfit: outfit %>
-          </div>
+          </span>
         </div>
       </div>
     <% end %>
