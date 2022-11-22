@@ -15,7 +15,7 @@
 
     <!-- いいねした投稿一覧 -->
     <div class='col-md-8 rounded bg-white'>
-      <h4 class="mt-3 text-center"><strong>いいねした投稿</strong></h4>
+      <h4 class="mt-3 text-center"><strong><%= @user.nickname %>さんがいいねした投稿</strong></h4>
 
       <% if @favorites_outfits.empty? %>
         <div>いいねした投稿はありません</div>
