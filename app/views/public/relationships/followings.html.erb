@@ -2,7 +2,7 @@
   <div class='row'>
 
     <div class='col mt-5 mx-auto'>
-      <h4><strong>フォロー一覧</strong></h4>
+      <h4><strong><%= @user.nickname %>さんのフォロー一覧</strong></h4>
       <%= render 'public/relationships/follow', users: @users %>
     </div>
 
