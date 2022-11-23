@@ -2,7 +2,7 @@
   // フォーム全体の要素
   var userForm = document.querySelector("#userForm");
 
-  // 各入力フィールド(name, email, password, password_confirmation) の要素
+  // 各入力フィールド(nickname, email, password, password_confirmation) の要素
   var userNameField = document.querySelector('#userName');
   var userEmailField = document.querySelector('#userEmail');
   var userPasswordField = document.querySelector('#userPassword');
@@ -13,7 +13,6 @@
 
   // 各入力フィールド内の <input> タグ
   var userName = document.querySelector("#user_name");
-  console.log(userName);
   var userEmail = document.querySelector("#user_email");
   var userPassword = document.querySelector("#user_password");
 
@@ -53,9 +52,8 @@
     }else if(userName.value.length < 2){ // 文字数が2文字未満の場合
       namePara.textContent = "表示名は2文字以上で入力してください";
       namePara.style.color = "red";
-      // userName.parentElement.style.border = "2px solid red";
       activeName = false;
-    }else if(userName.value.length > 20){ // 文字数が50文字以上の場合
+    }else if(userName.value.length > 20){ // 文字数が20文字以上の場合
       namePara.textContent = "表示名は20文字以内で入力してください";
       namePara.style.color = "red";
       userSubmitActive -= 1;
@@ -68,7 +66,6 @@
   });
 
   //メールアドレス(:email)のバリデーション
-
   userEmail.addEventListener('input', ()=>{
     // email の正規表現パターン↓
     var emailRegex = /^[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
