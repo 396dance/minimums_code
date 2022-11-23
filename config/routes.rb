@@ -28,10 +28,10 @@ Rails.application.routes.draw do
       get 'followers' => 'relationships#followers', as: 'followers'
       member do
         get :favorites
+        get:quit
+        patch:close
       end
     end
-    get '/users/:id/quit' => 'users#quit'
-    patch '/users/:id/close' => 'users#close'
     get 'search' => 'searches#search'
   end
 
