@@ -32,18 +32,18 @@
     }
    });
 
-    //投稿画像のバリデーション
-    userImage.addEventListener("input", ()=>{
-      if(userImage.value === ""){ // 入力フォームが空の場合
-        imagePara.textContent = "投稿画像を選択してください";
-        imagePara.style.color = "red";
-        activeImage = false;
-      }else{ // バリデーションチェック完了時（OK時）の処理
-        imagePara.textContent = "";
-        activeImage = true;
-      }
-      userImageField.appendChild(imagePara); // :image用のバリデーションエラーメッセージを表示
-    });
+  //投稿画像のバリデーション
+  userImage.addEventListener("click", ()=>{
+    if(userImage.value === ""){ // 入力フォームが空の場合
+      imagePara.textContent = "投稿画像を選択してください";
+      imagePara.style.color = "red";
+      activeImage = false;
+    }else{ // バリデーションチェック完了時（OK時）の処理
+      imagePara.textContent = "";
+      activeImage = true;
+    }
+    userImageField.appendChild(imagePara); // :image用のバリデーションエラーメッセージを表示
+  });
 
 
   //一言コメントのバリデーション

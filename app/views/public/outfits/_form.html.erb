@@ -15,7 +15,7 @@
     <%= form_with model: outfit, url:'/outfits', method: :post, id: "userForm"  do |f| %>
       <span><strong>コーディネート写真</strong></span>
       <div id="userImage">
-        <%= f.file_field :image, accept: "image/*", class:"mb-2", id:"user_Image" %>
+        <%= f.file_field :image, accept: "image/*", class:"mb-2", id:"user_image" %>
       </div>
       <span class="mb-1"><strong>一言コメント</strong></span>
       <div id="userBody">
