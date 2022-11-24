@@ -28,11 +28,7 @@
           <td>
             <%= form_with model: @outfit, url: outfit_path(@outfit.id), method: :patch do |f| %>
               <%= f.text_area :body, autofocus: true, placeholder:"一言コメント", class: "form-control mb-3", rows: "5" %>
-              <div class="text-center">
-                <%= f.submit '編集内容を保存', class: "btn btn-sm btn-success p-0 p-1 mr-5", style: 'font-size: 8px;' %>
-                <%= link_to "投稿を削除", outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-sm btn-danger p-0 p-1', style: 'font-size: 8px;' %>
-              </div>
-            <% end %>
+
 
           </td>
         </tr>
@@ -40,11 +36,10 @@
         <tr>
           <th class='table-active'>タグ</th>
           <td>
-            <% @outfit.tags.each do |tag| %>
-              <span style="font-size: 0.7em; background-color: #e1e1e1; color: #333;border-radius: 3px;padding: 2px 3px;"><%= tag.name %></span>
-            <% end %>
+            <%= f.select :tag_ids, Tag.pluck(:name, :id), {prompt: 'タグ選択'}, {multiple: true, class: 'form-control mb-2'} %>
           </td>
          </tr>
+
         <tr>
           <th class='table-active'>投稿者</th>
           <td><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></td>
@@ -55,15 +50,13 @@
           <td><%= @outfit.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
         </tr>
 
-        <!--コメント一覧-->
-        <tr>
-          <th class='table-active'>コメント一覧</th>
-          <td id='comments-area'>
-
-            <%= render 'public/outfit_comments/index', outfit: @outfit, outfit_comments: @outfit_comments %>
-          </td>
-        </tr>
       </table>
+
+      <div class="text-center">
+                <%= f.submit '編集内容を保存', class: "btn btn-warning p-0 p-1 mr-5" %>
+                <%= link_to "投稿を削除", outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger p-0 p-1' %>
+              </div>
+              <% end %>
 
     </div>
   </div>
