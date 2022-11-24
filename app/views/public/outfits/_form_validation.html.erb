@@ -2,24 +2,20 @@
   // フォーム全体の要素
   var userForm = document.querySelector("#userForm");
 
-  // 各入力フィールド(image, body) の要素
-  var userImageField = document.querySelector("#userImgae");
+  // 各入力フィールド(body) の要素
   var userBodyField = document.querySelector("#userBody");
 
   // 各入力フィールド内の<input>タグ
-  var userImage = document.querySelector("#user_image");
   var userBody = document.querySelector("#user_body");
 
   // フォーム送信ボタン（Submit）の要素
   var userSubmitBtn = document.querySelector("#user_submit");
 
   // 各フィールドのエラーメッセージ表示用の paragraph
-  var imagePara = document.createElement('p');
   var bodyPara = document.createElement('p');
 
   // 各入力フィールドのバリデーションチェック用の変数
   // エラー時は"false", OK時は"true"を代入する（後述）
-  var activeImage;
   var activeBody;
 
   //Submitボタンの有効化条件
@@ -31,19 +27,6 @@
       userSubmitBtn.disabled = true;
     }
    });
-
-  //投稿画像のバリデーション
-  userImage.addEventListener("click", ()=>{
-    if(userImage.value === ""){ // 入力フォームが空の場合
-      imagePara.textContent = "投稿画像を選択してください";
-      imagePara.style.color = "red";
-      activeImage = false;
-    }else{ // バリデーションチェック完了時（OK時）の処理
-      imagePara.textContent = "";
-      activeImage = true;
-    }
-    userImageField.appendChild(imagePara); // :image用のバリデーションエラーメッセージを表示
-  });
 
 
   //一言コメントのバリデーション

@@ -13,11 +13,11 @@
   <p><strong>投稿フォーム</strong></p>
   <% if current_user.nickname != "guestuser" %>
     <%= form_with model: outfit, url:'/outfits', method: :post, id: "userForm"  do |f| %>
-      <span><strong>コーディネート写真</strong></span>
+      <span><strong>コーディネート写真 (必須)</strong></span>
       <div id="userImage">
         <%= f.file_field :image, accept: "image/*", class:"mb-2", id:"user_image" %>
       </div>
-      <span class="mb-1"><strong>一言コメント</strong></span>
+      <span class="mb-1"><strong>一言コメント (必須)</strong></span>
       <div id="userBody">
         <%= f.text_area :body, class:"form-control mb-2", placeholder:"(例)無印で購入した服で全身コーディネートしました。", id:"user_body" %>
       </div>
