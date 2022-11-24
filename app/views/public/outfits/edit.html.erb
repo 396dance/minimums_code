@@ -26,11 +26,14 @@
         <tr>
           <th class='table-active'>一言コメント</th>
           <td>
-            <p><%= @outfit.body %></p>
-            <% if @outfit.user == current_user %>
-              <%= link_to "一言コメントを編集", edit_outfit_path(@outfit), class: 'btn btn-sm btn-warning p-0 p-1', style: 'font-size: 8px;' %>
-              <%= link_to "投稿を削除", outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-sm btn-danger p-0 p-1', style: 'font-size: 8px;' %>
+            <%= form_with model: @outfit, url: outfit_path(@outfit.id), method: :patch do |f| %>
+              <%= f.text_area :body, autofocus: true, placeholder:"一言コメント", class: "form-control mb-3", rows: "5" %>
+              <div class="text-center">
+                <%= f.submit '編集内容を保存', class: "btn btn-sm btn-success p-0 p-1 mr-5", style: 'font-size: 8px;' %>
+                <%= link_to "投稿を削除", outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-sm btn-danger p-0 p-1', style: 'font-size: 8px;' %>
+              </div>
             <% end %>
+
           </td>
         </tr>
 
@@ -60,19 +63,6 @@
             <%= render 'public/outfit_comments/index', outfit: @outfit, outfit_comments: @outfit_comments %>
           </td>
         </tr>
-
-        <!--コメント投稿フォーム-->
-        <% if current_user.nickname != 'guestuser' %>
-          <tr>
-            <th class='table-active'>コメント投稿欄</th>
-            <td id='comment_form'>
-              <%= render 'public/outfit_comments/form', outfit: @outfit, outfit_comment: @outfit_comment %>
-            </td>
-          </tr>
-        <% else %>
-          <th class='table-active'>コメント投稿欄</th>
-          <td>※ゲストユーザーのため、コメントできません。コメントするにはログインしてください。</td>
-        <% end %>
       </table>
 
     </div>

@@ -2,19 +2,21 @@
   <div class='row'>
 
     <!--サイドバー-->
-    <div class='col-md-4'>
+    <div class='col-sm-12 col-md-4'>
       <!--プロフィール-->
       <%= render 'public/users/info', user: @user %>
       <!--投稿フォーム-->
       <div class="d-none d-sm-block">
         <%= render 'public/outfits/form', outfit: @outfit, user: current_user %>
+        <%= render "public/outfits/form_validation" %>
       </div>
     </div>
 
     <!-- ユーザーの投稿一覧 -->
-    <div class='col-md-8 border rounded bg-white'>
+    <div class='col-sm-12 col-md-8 border rounded bg-white'>
       <div class='mt-3'>
         <!--投稿一覧-->
+        <h4 class="mt-3 text-center"><strong><%= @user.nickname %>さんのコーディネート一覧</strong></h4>
         <%= render 'public/outfits/index', outfits: @outfits %>
       </div>
     </div>

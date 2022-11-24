@@ -2,7 +2,7 @@
   <div class='row'>
 
     <!--サイドバー-->
-    <div class='col-md-4'>
+    <div class='col-sm-12 col-md-4'>
       <!--プロフィール-->
       <div class="d-none d-sm-block">
         <%= render 'public/users/info', user: current_user %>
@@ -12,10 +12,12 @@
     </div>
 
     <!-- ユーザーの投稿一覧 -->
-    <div class='col-md-8 border rounded bg-white'>
+    <div class='col-sm-12 col-md-8 border rounded bg-white'>
       <div class='mt-3'>
         <!--投稿一覧-->
+        <h4 class="mt-3 text-center"><strong>コーディネート一覧</strong></h4>
         <%= render 'public/outfits/index', outfits: @outfits %>
+        <%= render "form_validation" %>
       </div>
     </div>
 
