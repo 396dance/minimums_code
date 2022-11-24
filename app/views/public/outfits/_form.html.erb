@@ -12,18 +12,23 @@
   <!--投稿フォーム-->
   <p><strong>投稿フォーム</strong></p>
   <% if current_user.nickname != "guestuser" %>
-    <%= form_with model: outfit, url:'/outfits', method: :post do |f| %>
-      <span><strong>コーディネート写真</strong></span>
-        <%= f.file_field :image, accept: "image/*", class:"mb-2" %>
-      <span class="mb-1"><strong>一言コメント</strong></span>
-        <%= f.text_area :body, placeholder:"(例)無印で購入した服で全身コーディネートしました。", class:"form-control mb-2" %>
+    <%= form_with model: outfit, url:'/outfits', method: :post, id: "userForm" do |f| %>
+      <span><strong>コーディネート写真 (必須)</strong></span>
+      <div id="userImage">
+        <%= f.file_field :image, accept: "image/*", class:"mb-2", id:"user_image" %>
+      </div>
+      <span class="mb-1"><strong>一言コメント (必須)</strong></span>
+      <div id="userBody">
+        <%= f.text_area :body, class:"form-control mb-2", placeholder:"(例)無印で購入した服で全身コーディネートしました。", id:"user_body" %>
+      </div>
       <div>
         <span><strong>タグ</strong></span>
         <%= f.select :tag_ids, Tag.pluck(:name, :id), {prompt: 'タグ選択'}, {multiple: true, class: 'form-control mb-2'} %>
       </div>
-      <%= f.submit '投稿', class: "btn btn-success" %>
+      <%= f.submit '投稿', class: "btn btn-success", id: "user_submit" %>
     <% end %>
   <% else %>
     <p>※ゲストユーザーは投稿できません。ログインしてください。</p>
   <% end %>
 </div>
+

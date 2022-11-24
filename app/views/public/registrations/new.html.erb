@@ -22,7 +22,7 @@
             <div id="userPassword">
               <%= f.password_field :password, autocomplete: "new-password", class:"form-control mb-3", placeholder:"パスワード(6文字以上)", id:"user_password" %>
             </div>
-            <%= f.label :password_confirmation, "パスワード", class:"sr-only" %>
+            <%= f.label :password_confirmation, "パスワード(確認用)", class:"sr-only" %>
             <div id="userPasswordConfirmation">
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control mb-3", placeholder:"パスワード再入力", id:"user_password_confirmation" %>
             </div>

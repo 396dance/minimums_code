@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     }
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    resources :outfits, only: [:index, :show, :create, :destroy] do
+    resources :outfits, only: [:index, :show, :edit, :update, :create, :destroy] do
       resource  :favorites, only: [:create, :destroy]
       resources :outfit_comments, only: [:create, :destroy]
     end
@@ -28,10 +28,10 @@ Rails.application.routes.draw do
       get 'followers' => 'relationships#followers', as: 'followers'
       member do
         get :favorites
+        get:quit
+        patch:close
       end
     end
-    get '/users/:id/quit' => 'users#quit'
-    patch '/users/:id/close' => 'users#close'
     get 'search' => 'searches#search'
   end
 

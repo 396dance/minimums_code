@@ -22,7 +22,22 @@ class Public::OutfitsController < ApplicationController
     end
 
     @outfits = @outfits.page(params[:page])
+  end
 
+  def edit
+    @outfit = Outfit.find(params[:id])
+    @user = @outfit.user
+    @outfits = Outfit.new
+    @outfit_comment = OutfitComment.new
+  end
+
+  def update
+    @outfit = Outfit.find(params[:id])
+    if @outfit.update(outfit_params)
+      redirect_to outfit_path(@outfit.id)
+    else
+      render :edit
+    end
   end
 
   def create

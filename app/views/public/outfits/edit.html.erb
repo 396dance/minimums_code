@@ -1,0 +1,64 @@
+<div class='container m-5 px-sm-0 mx-auto'>
+  <div class='row'>
+    <div class='col-sm-12 col-md-4'>
+      <!--プロフィール-->
+      <%= render 'public/users/info', user: @user %>
+
+      <!--投稿フォーム-->
+      <div class="d-none d-sm-block">
+        <%= render 'public/outfits/form', outfit: @outfits, user: current_user %>
+        <%= render "form_validation" %>
+      </div>
+     </div>
+
+    <div class='col-sm-12 col-md-8'>
+      <table class='table bg-white'>
+        <tr>
+          <th class='table-active'>コーディネート</th>
+          <td>
+            <%= image_tag @outfit.image, class: 'show-outfit-image' %>
+            <div id="favorite_buttons_<%= @outfit.id %>">
+              <%= render 'public/favorites/favorite', outfit: @outfit %>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <th class='table-active'>一言コメント</th>
+          <td>
+            <%= form_with model: @outfit, url: outfit_path(@outfit.id), method: :patch do |f| %>
+              <%= f.text_area :body, autofocus: true, placeholder:"一言コメント", class: "form-control mb-3", rows: "5" %>
+
+
+          </td>
+        </tr>
+
+        <tr>
+          <th class='table-active'>タグ</th>
+          <td>
+            <%= f.select :tag_ids, Tag.pluck(:name, :id), {prompt: 'タグ選択'}, {multiple: true, class: 'form-control mb-2'} %>
+          </td>
+         </tr>
+
+        <tr>
+          <th class='table-active'>投稿者</th>
+          <td><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></td>
+        </tr>
+
+        <tr>
+          <th class='table-active'>投稿日</th>
+          <td><%= @outfit.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+        </tr>
+
+      </table>
+
+      <div class="text-center">
+                <%= f.submit '編集内容を保存', class: "btn btn-warning p-0 p-1 mr-5" %>
+                <%= link_to "投稿を削除", outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger p-0 p-1' %>
+              </div>
+              <% end %>
+
+    </div>
+  </div>
+</div>
+

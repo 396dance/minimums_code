@@ -38,7 +38,7 @@
       </div>
       <div class="actions mt-3 text-center">
         <%= f.submit '編集内容を保存', class: "btn btn-success mr-5" %>
-        <%= link_to "/users/#{@user.id}/quit", class: "ml-5" do %>
+        <%= link_to quit_user_path(@user.id), class: "ml-5" do %>
          <button type="button" class="btn btn-danger">退会する</button>
         <% end %>
       </div>

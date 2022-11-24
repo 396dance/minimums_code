@@ -8,6 +8,6 @@
 
 <!--コメント投稿フォーム-->
 <%= form_with model: [outfit,outfit_comment], url: outfit_outfit_comments_path(outfit), method: :post, local: false do |comment| %>
-  <%= comment.text_area :comment, placeholder: "コメントをここに" %>
+  <%= comment.text_area :comment, class:"form-control mb-2", placeholder: "コメントをここに" %>
   <%= comment.submit "コメント投稿", class: "btn btn-success" %>
 <% end %>

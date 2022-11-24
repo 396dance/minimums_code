@@ -2,7 +2,7 @@
   // フォーム全体の要素
   var userForm = document.querySelector("#userForm");
 
-  // 各入力フィールド(name, email, password, password_confirmation) の要素
+  // 各入力フィールド(nickname, email, password, password_confirmation) の要素
   var userNameField = document.querySelector('#userName');
   var userEmailField = document.querySelector('#userEmail');
   var userPasswordField = document.querySelector('#userPassword');
@@ -13,7 +13,6 @@
 
   // 各入力フィールド内の <input> タグ
   var userName = document.querySelector("#user_name");
-  console.log(userName);
   var userEmail = document.querySelector("#user_email");
   var userPassword = document.querySelector("#user_password");
 
@@ -49,21 +48,17 @@
     if(userName.value === ""){ // 入力フォームが空の場合
       namePara.textContent = "表示名を入力してください";
       namePara.style.color = "red";
-      userName.parentElement.style.border = "2px solid red";
       activeName = false;
     }else if(userName.value.length < 2){ // 文字数が2文字未満の場合
       namePara.textContent = "表示名は2文字以上で入力してください";
       namePara.style.color = "red";
-      userName.parentElement.style.border = "2px solid red";
       activeName = false;
-    }else if(userName.value.length > 50){ // 文字数が50文字以上の場合
-      namePara.textContent = "表示名は50文字以内で入力してください";
+    }else if(userName.value.length > 20){ // 文字数が20文字以上の場合
+      namePara.textContent = "表示名は20文字以内で入力してください";
       namePara.style.color = "red";
-      userName.parentElement.style.border = "2px solid red";
       userSubmitActive -= 1;
       activeName = false;
     }else{ // バリデーションチェック完了時（OK時）の処理
-      userName.parentElement.style.border = "2px solid lightgreen";
       namePara.textContent = "";
       activeName = true;
     }
@@ -71,22 +66,18 @@
   });
 
   //メールアドレス(:email)のバリデーション
-
   userEmail.addEventListener('input', ()=>{
     // email の正規表現パターン↓
     var emailRegex = /^[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
     if(userEmail.value === ""){ // 入力フォームが空の場合
       emailPara.textContent = "メールアドレスを入力してください";
       emailPara.style.color = "red";
-      userEmail.parentElement.style.border = "2px solid red";
       activeEmail = false;
     }else if(!emailRegex.test(userEmail.value)){ // 入力した値がemailRegexの正規表現パターンにマッチしない場合
       emailPara.textContent = "有効なアドレスを入力してください";
       emailPara.style.color = "red";
-      userEmail.parentElement.style.border = "2px solid red";
       activeEmail = false;
     }else{ // バリデーションチェック完了時（OK時）の処理
-      userEmail.parentElement.style.border = "2px solid lightgreen";
       emailPara.textContent = "";
       activeEmail = true;
     }
@@ -104,13 +95,11 @@
         confirmationPara.textContent = "";
         passwordPara.textContent = "パスワードを入力してください";
         passwordPara.style.color = "red";
-        userPassword.parentElement.style.border = "2px solid red";
         activePassword = false;
       }else{ // 入力した値が1文字以上6文字未満である場合
         confirmationPara.textContent = "";
         passwordPara.textContent = "6文字以上の半角英数字を入力してください";
         passwordPara.style.color = "red";
-        userPassword.parentElement.style.border = "2px solid red";
         userPasswordConfirmation.parentElement.style.border = "none";
         activePassword = false;
       }
@@ -128,13 +117,11 @@
         confirmationPara.textContent = "";
         passwordPara.textContent = "パスワードを入力してください";
         passwordPara.style.color = "red";
-        userPassword.parentElement.style.border = "2px solid red";
         activePassword = false;
       }else{ // 入力した値が1文字以上6文字未満である場合
         confirmationPara.textContent = "";
         passwordPara.textContent = "6文字以上の半角英数字を入力してください";
         passwordPara.style.color = "red";
-        userPassword.parentElement.style.border = "2px solid red";
         userPasswordConfirmation.parentElement.style.border = "none";
         activePassword = false;
       }
@@ -145,21 +132,15 @@
         passwordPara.textContent = "";
         confirmationPara.textContent = "パスワード(確認用)を入力してください";
         confirmationPara.style.color = "red";
-        userPassword.parentElement.style.border = "2px solid lightgreen";
-        userPasswordConfirmation.parentElement.style.border = "2px solid red";
         activePassword = false;
       }else if(userPasswordConfirmation.value === userPassword.value){ // パスワード、パスワード確認用の値が一致する場合
         passwordPara.textContent = "";
         confirmationPara.textContent = "";
-        userPassword.parentElement.style.border = "2px solid lightgreen";
-        userPasswordConfirmation.parentElement.style.border = "2px solid lightgreen";
         activePassword = true;
       }else{ // パスワード、パスワード確認用の値が一致しない場合
         passwordPara.textContent = "";
         confirmationPara.textContent = "入力したパスワードと一致しません";
         confirmationPara.style.color = "red";
-        userPassword.parentElement.style.border = "2px solid lightgreen";
-        userPasswordConfirmation.parentElement.style.border = "2px solid red";
         activePassword = false;
       }
     }
