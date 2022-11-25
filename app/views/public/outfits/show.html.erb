@@ -44,7 +44,15 @@
          </tr>
         <tr>
           <th class='table-active'>投稿者</th>
-          <td><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></td>
+          <td>
+            <%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %>
+            （身長
+              <% if @outfit.user.height == nil %>
+                ？㎝）
+              <% else %>
+                <%= @outfit.user.height %>㎝）
+              <% end %>
+          </td>
         </tr>
 
         <tr>

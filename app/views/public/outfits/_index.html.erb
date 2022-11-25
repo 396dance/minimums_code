@@ -24,10 +24,18 @@
           <% if outfit.tags.size > 0 %>
             <p class="card-text">
               <span style="font-size: 0.7em; background-color: #e1e1e1; color: #333;border-radius: 3px;padding: 2px 3px;"><%= outfit.tags[0].name.truncate(8) %></span> ...
-              <span style="font-size: 11px;padding: 3px;"><%= outfit.tags.size %>tags</span>
+              <span style="font-size: 11px; padding: 3px;"><%= outfit.tags.size %>tags</span>
             </p>
           <% end %>
-          <p class="card-text"><%= link_to outfit.user.nickname.truncate(10), user_path(outfit.user.id) %></p>
+          <p class="card-text", style="font-size: 12px;">
+            <%= link_to outfit.user.nickname.truncate(10), user_path(outfit.user.id) %>
+            （身長
+              <% if outfit.user.height == nil %>
+                ？㎝）
+              <% else %>
+                <%= outfit.user.height %>㎝）
+              <% end %>
+          </p>
         </div>
 
         <div class="card-footer d-none d-sm-block">
