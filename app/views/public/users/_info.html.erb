@@ -14,7 +14,7 @@
       <strong><%= user.nickname %></strong>
       （身長
       <% if user.height == nil %>
-        ○○㎝）
+        ?㎝）
       <% else %>
         <%= user.height %>㎝）
       <% end %>
@@ -40,7 +40,9 @@
     <% end %>
     <!--プロフィール編集ボタン-->
     <% if user.id == current_user.id && user.nickname != "guestuser" %>
-      <%= link_to 'プロフィール編集', edit_user_path(user.id), class: "btn btn-outline-secondary mb-5" %>
+      <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary mb-5" do %>
+        <i class="fas fa-user-cog"></i> プロフィール編集
+      <% end %>
     <% end %>
 
   <% end %>

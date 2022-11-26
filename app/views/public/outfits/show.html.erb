@@ -28,8 +28,14 @@
           <td>
             <p><%= @outfit.body %></p>
             <% if @outfit.user == current_user %>
-              <%= link_to "一言コメントを編集", edit_outfit_path(@outfit), class: 'btn btn-sm btn-warning p-0 p-1', style: 'font-size: 8px;' %>
-              <%= link_to "投稿を削除", outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-sm btn-danger p-0 p-1', style: 'font-size: 8px;' %>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <%= link_to edit_outfit_path(@outfit), class: 'btn btn-outline-primary mr-2', style: 'font-size: 10px;' do %>
+                  <i class="fas fa-edit"></i>投稿を編集
+                <% end %>
+                <%= link_to outfit_path(@outfit), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-outline-secondary', style: 'font-size: 10px;' do %>
+                  <i class='fas fa-trash-alt'></i> 削除
+                <% end %>
+              </div>
             <% end %>
           </td>
         </tr>
@@ -44,7 +50,15 @@
          </tr>
         <tr>
           <th class='table-active'>投稿者</th>
-          <td><%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %></td>
+          <td>
+            <%= link_to @outfit.user.nickname, user_path(@outfit.user.id) %>
+            （身長
+              <% if @outfit.user.height == nil %>
+                ？㎝）
+              <% else %>
+                <%= @outfit.user.height %>㎝）
+              <% end %>
+          </td>
         </tr>
 
         <tr>

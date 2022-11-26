@@ -2,6 +2,7 @@ class Public::OutfitsController < ApplicationController
   # userがログインしていないとページ見れない(topページAboutページのみ見れる)
   before_action :authenticate_user!, except: [:top, :about]
 
+
   def index
     @outfit = Outfit.new
     @users = User.all
@@ -27,8 +28,12 @@ class Public::OutfitsController < ApplicationController
   def edit
     @outfit = Outfit.find(params[:id])
     @user = @outfit.user
-    @outfits = Outfit.new
-    @outfit_comment = OutfitComment.new
+    if @user == current_user
+      @outfits = Outfit.new
+      @outfit_comment = OutfitComment.new
+    else
+      redirect_to outfits_path
+    end
   end
 
   def update
