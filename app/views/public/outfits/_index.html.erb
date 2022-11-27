@@ -15,9 +15,11 @@
 
     <% outfits.each do |outfit| %>
       <div class="col-4 mt-3 px-md-1 px-0 border">
-        <div class="card">
+        <div class="card image_container">
           <%= link_to outfit_path(outfit.id) do %>
             <%= image_tag outfit.image, class: 'index-outfit-image', style: 'width:100%; aspect-ratio:1/1; object-fit:cover;' %>
+
+            <%= render "public/favorites/favorite", outfit: outfit %>
           <% end %>
         </div>
 
