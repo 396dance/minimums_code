@@ -4,7 +4,7 @@
     <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),{prompt: '全てを表示',onchange: 'submit(this.form);'}%>
   <% end %>
   <!--キーワード検索フォーム-->
-  <%= render "public/searches/search" %>
+<%= render "public/searches/search" %>
 
   <!--並び替え-->
   <%= link_to '新しい順', outfits_path(latest: 'true', tag_id: @tag_id) %>

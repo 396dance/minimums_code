@@ -86,6 +86,12 @@
     </header>
 
     <main>
+      <!--通知表示-->
+      <% if notice %>
+        <div class="alert alert-success mb-0" style="color: #155724">
+          <%= notice %>
+        </div>
+      <% end %>
       <!--各ページの記述を取ってくる-->
       <%= yield %>
     </main>
