@@ -6,7 +6,7 @@
     <tr>
       <td><%= outfit_comment.user.nickname %></td>
       <td><%= outfit_comment.comment %></td>
-      <td><%= outfit_comment.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= outfit_comment.created_at.strftime('%Y/%m/%d %H:%M') %></td>
       <td>
         <%= link_to "削除", admin_outfit_outfit_comment_path(outfit,outfit_comment), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
       </td>

@@ -1,13 +1,4 @@
 <!--管理者側：TOP画面(服装投稿一覧)-->
-
-<!--通知表示-->
-<% if notice %>
-  <div class="alert alert-success mb-0" style="color: #155724">
-    <%= notice %>
-  </div>
-<% end %>
-
-<!--TOP画面(服装投稿一覧)-->
 <div class="container px-md-5 px-sm-0 mx-auto">
   <div class="row">
     <div class="col">
@@ -20,6 +11,7 @@
             <th>投稿画像</th>
             <th>一言コメント</th>
             <th>投稿者</th>
+            <th>投稿日時</th>
           </tr>
         </thead>
         <tbody>
@@ -32,6 +24,7 @@
               </td>
               <td><%= outfit.body.truncate(8) %></td>
               <td><%= link_to outfit.user.nickname, admin_user_path(outfit.user.id) %></td>
+              <td><%= outfit.created_at.strftime('%Y/%m/%d %H:%M') %></td>
             </tr>
           <% end %>
         </tbody>

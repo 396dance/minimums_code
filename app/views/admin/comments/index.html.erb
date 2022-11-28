@@ -4,9 +4,10 @@
 
   <table class="table bg-white shadow mt-4">
     <thead>
-      <th><%= "投稿画像" %></th>
+      <th><%= "投稿" %></th>
       <th><%= "コメント者" %></th>
-      <th><%= "コメント内容" %></th>
+      <th><%= "内容" %></th>
+      <th><%= "日時" %></th>
     </thead>
     <tbody>
       <% @outfit_comments. each do |outfit_comment| %>
@@ -17,7 +18,8 @@
           <% end %>
         </td>
         <td><%= outfit_comment.user.nickname %></td>
-        <td><%= outfit_comment.comment %></td>
+        <td class="outfit_comment"><%= outfit_comment.comment %></td>
+        <td><%= outfit_comment.created_at.strftime('%Y/%m/%d %H:%M') %></td>
         <td>
           <%= link_to "削除", admin_comment_path(outfit_comment), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger p-0 p-1", style: "font-size: 8px;" %>
         </td>
