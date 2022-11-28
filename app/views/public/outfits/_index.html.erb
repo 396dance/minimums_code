@@ -44,7 +44,7 @@
 
         <div class="card-footer d-none d-sm-block">
           <div>
-            <%= outfit.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+            <%= outfit.created_at.strftime('%Y/%m/%d %H:%M') %>
           </div>
           <%= link_to outfit_path(outfit.id), class: "text-dark text-decoration-none" do %>
             <i class="far fa-comment"></i>
