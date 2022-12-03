@@ -36,7 +36,7 @@ th {
  * トップ画面
  ********************/
 .top-image {
-  max-width: 100%;
+  width: 100vw;
   height: auto;
 }
 
@@ -65,6 +65,13 @@ th {
   white-space: nowrap;
 }
 
+
+/********************
+ * 投稿一覧画面
+ ********************/
+.outfit-form-title {
+  font-size: 14px;
+}
 
 /********************
  * 投稿詳細画面
